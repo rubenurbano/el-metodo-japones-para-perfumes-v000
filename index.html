@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Tutorial completo del Método Japonés para Perfumes: fundamentos, procedimiento, práctica, 21 preguntas y respuestas, errores, resumen y fuentes.">
+<title>El Método Japonés para Perfumes — Tutorial completo</title>
+<style>
+/* ============================================================
+   BASE
+   ============================================================ */
+:root{
+  --bg:#0a0e1a;
+  --card:#0f172a;
+  --blue:#1e3a5f;
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+  --acc:#38bdf8;
+  --acc2:#7fe4ff;
+  --gold:#f7c86a;
+  --fs:16px;
+  --navh:58px;
+  --r:14px;
+  --max:920px;
+}
+html[data-theme="light"]{
+  --bg:#eef3f9;
+  --card:#ffffff;
+  --blue:#c7d7e8;
+  --text:#0b1220;
+  --muted:#475569;
+  --acc:#0369a1;
+  --acc2:#0284c7;
+}
+*{box-sizing:border-box}
+html{
+  font-size:var(--fs);
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+}
+body{
+  margin:0;
+  padding-top:var(--navh);
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%}
+h1,h2,h3,h4{line-height:1.25;margin:0 0 .5em}
+h1{font-size:clamp(1.55rem,5.4vw,2.3rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.25rem,4.3vw,1.7rem);letter-spacing:-.01em}
+h3{font-size:clamp(1.05rem,3.4vw,1.25rem)}
+h4{font-size:1rem}
+p{margin:0 0 1em}
+a{color:var(--acc)}
+ul,ol{margin:0 0 1em;padding-left:1.25em}
+li{margin-bottom:.45em}
+strong{color:var(--text)}
+small{font-size:.82rem;color:var(--muted)}
+hr{border:0;border-top:1px solid var(--blue);margin:1.6em 0}
+::selection{background:#38bdf855}
+
+:focus-visible{
+  outline:3px solid var(--acc);
+  outline-offset:2px;
+  border-radius:6px;
+}
+
+/* ============================================================
+   BARRA SUPERIOR FIJA
+   ============================================================ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:30;
+  background:rgba(10,14,26,.94);
+  border-bottom:1px solid var(--blue);
+  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);
+}
+html[data-theme="light"] #nav{background:rgba(255,255,255,.94)}
+.navrow{
+  display:flex;align-items:center;gap:8px;
+  padding:7px 10px;
+  max-width:1180px;margin:0 auto;
+}
+.chips{
+  display:flex;gap:8px;align-items:center;
+  flex:1 1 auto;min-width:0;
+  overflow-x:auto;overflow-y:hidden;
+  padding:2px 2px 4px;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:0 0 auto;
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:6px;
+  min-height:42px;
+  padding:0 14px;
+  border-radius:999px;
+  border:1px solid var(--blue);
+  background:transparent;
+  color:var(--muted);
+  font:inherit;
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:.01em;
+  white-space:nowrap;
+  cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s,transform .12s;
+  -webkit-tap-highlight-color:transparent;
+}
+.chip:hover{color:var(--text);border-color:var(--acc)}
+.chip:active{transform:scale(.97)}
+.chip.on{
+  background:#38bdf822;
+  border-color:var(--acc);
+  color:var(--acc);
+}
+#mb{
+  flex:0 0 auto;
+  font-weight:700;
+  color:var(--text);
+  background:#38bdf81a;
+  border-color:#38bdf866;
+}
+.tools{
+  display:flex;gap:6px;flex:0 0 auto;align-items:center;
+}
+.tbtn{
+  width:40px;height:40px;min-height:40px;
+  display:inline-flex;align-items:center;justify-content:center;
+  border-radius:11px;
+  border:1px solid var(--blue);
+  background:transparent;
+  color:var(--muted);
+  font:inherit;font-size:.95rem;font-weight:700;
+  cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s;
+  -webkit-tap-highlight-color:transparent;
+}
+.tbtn:hover{color:var(--acc);border-color:var(--acc)}
+.pbar{
+  position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:rgba(255,255,255,.06);
+}
+#pfill{
+  display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--acc),var(--acc2));
+  transition:width .12s linear;
+}
+
+@media (max-width:620px){
+  .navrow{flex-wrap:wrap;row-gap:6px}
+  .tools{order:3;width:100%;justify-content:center;padding-top:2px}
+  .chips{order:2}
+  #mb{order:1}
+}
+
+/* ============================================================
+   PANEL LATERAL DE ÍNDICE
+   ============================================================ */
+#dr{
+  position:fixed;
+  top:var(--navh,58px);
+  left:0;bottom:0;
+  width:min(330px,88vw);
+  background:#0f172a;
+  border-right:1px solid #1e3a5f;
+  transform:translateX(-105%);
+  visibility:hidden;
+  transition:transform .25s ease, visibility 0s linear .25s;
+  z-index:25;
+  overflow:auto;
+  padding:10px;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+}
+#dr.o{
+  transform:none;
+  visibility:visible;
+  transition:transform .25s ease, visibility 0s linear 0s;
+}
+#dr .drhead{
+  position:sticky;top:0;
+  background:#0f172a;
+  padding:2px 0 10px;
+  margin:0 0 6px;
+  border-bottom:1px solid #1e3a5f22;
+}
+#dr .drtitle{
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#94a3b8;
+  margin:0 0 8px;
+  padding-left:4px;
+}
+#dr .drsearch{
+  width:100%;
+  min-height:44px;
+  padding:0 12px;
+  border-radius:10px;
+  border:1px solid #1e3a5f;
+  background:#0a0e1a;
+  color:#e2e8f0;
+  font:inherit;
+  font-size:.9rem;
+}
+#dr .drsearch::placeholder{color:#64748b}
+#dr .drsearch:focus-visible{outline:3px solid #38bdf8;outline-offset:2px}
+#dr a{
+  display:block;
+  padding:12px;
+  border-radius:8px;
+  color:#e2e8f0;
+  cursor:pointer;
+  min-height:44px;
+  font-size:.95rem;
+  line-height:1.35;
+  text-decoration:none;
+  border-left:3px solid transparent;
+  transition:background .16s,color .16s,border-color .16s;
+}
+#dr a:hover{background:#ffffff0d}
+#dr a.on{
+  background:#00d4ff22;
+  color:#00d4ff;
+  border-left-color:#00d4ff;
+  font-weight:700;
+}
+#dr .drempty{
+  padding:14px 10px;
+  color:#94a3b8;
+  font-size:.88rem;
+  display:none;
+}
+#dr .drfoot{
+  margin-top:14px;
+  padding:12px 6px 4px;
+  border-top:1px solid #1e3a5f;
+  color:#64748b;
+  font-size:.75rem;
+  line-height:1.5;
+}
+
+/* ============================================================
+   CONTENIDO
+   ============================================================ */
+main{display:block}
+.sec{display:none}
+.sec.on{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:24px 16px 80px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--blue);
+  border-radius:var(--r);
+  padding:18px;
+  margin:0 0 18px;
+}
+.card.tight{padding:14px}
+.card h3:first-child,.card h4:first-child{margin-top:0}
+.card h3:last-child,.card p:last-child,.card ul:last-child,.card ol:last-child{margin-bottom:0}
+
+.grid{display:grid;gap:14px}
+@media(min-width:640px){
+  .grid.g2{grid-template-columns:1fr 1fr}
+  .grid.g3{grid-template-columns:repeat(3,1fr)}
+}
+
+.lead{font-size:1.06rem;color:var(--muted)}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:999px;
+  background:#38bdf81a;border:1px solid #38bdf855;
+  color:var(--acc);font-size:.74rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  margin-bottom:12px;
+}
+.badge.gold{background:#f7c86a1a;border-color:#f7c86a55;color:var(--gold)}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:46px;padding:0 18px;
+  border-radius:999px;
+  border:1px solid var(--acc);
+  background:var(--acc);
+  color:#06121f;
+  font:inherit;font-weight:800;font-size:.9rem;
+  cursor:pointer;
+  transition:filter .18s,transform .12s;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:hover{filter:brightness(1.1)}
+.btn:active{transform:scale(.98)}
+.btn.ghost{
+  background:transparent;
+  color:var(--acc);
+  border-color:var(--blue);
+}
+.btn.ghost:hover{border-color:var(--acc);background:#38bdf81a}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0}
+
+.note{
+  border-left:4px solid var(--acc);
+  background:#38bdf80f;
+  border-radius:0 10px 10px 0;
+  padding:12px 14px;
+  margin:0 0 16px;
+  font-size:.94rem;
+}
+.note.warn{border-left-color:#f59e0b;background:#f59e0b12}
+.note.danger{border-left-color:#ef4444;background:#ef444412}
+.note.gold{border-left-color:var(--gold);background:#f7c86a12}
+.note p:last-child{margin-bottom:0}
+.note strong{color:var(--text)}
+
+/* Tablas */
+.tw{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  margin:0 0 18px;
+  border:1px solid var(--blue);
+  border-radius:12px;
+  background:var(--card);
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.88rem;
+  min-width:520px;
+}
+caption{
+  caption-side:top;
+  text-align:left;
+  padding:12px 14px 0;
+  font-size:.8rem;
+  color:var(--muted);
+  font-weight:600;
+}
+th,td{
+  padding:11px 13px;
+  text-align:left;
+  vertical-align:top;
+  border-bottom:1px solid var(--blue);
+}
+th{
+  background:#38bdf810;
+  font-size:.78rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--acc);
+  white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#ffffff05}
+
+/* Bloques copiables */
+.copybox{
+  position:relative;
+  margin:0 0 18px;
+  border:1px solid var(--blue);
+  border-radius:12px;
+  background:#070b14;
+  overflow:hidden;
+}
+html[data-theme="light"] .copybox{background:#0f172a}
+.copybox .cbhead{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:8px 10px 8px 14px;
+  background:#0f172a;
+  border-bottom:1px solid var(--blue);
+}
+.copybox .cbtitle{
+  font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+  color:#94a3b8;font-weight:700;
+}
+.copybtn{
+  min-height:38px;padding:0 14px;
+  border-radius:8px;
+  border:1px solid #1e3a5f;
+  background:#38bdf81a;
+  color:#7fe4ff;
+  font:inherit;font-size:.75rem;font-weight:800;letter-spacing:.08em;
+  cursor:pointer;
+  transition:background .18s;
+}
+.copybtn:hover{background:#38bdf833}
+.copybtn.ok{background:#22c55e26;border-color:#22c55e;color:#86efac}
+.copybtn.err{background:#ef444426;border-color:#ef4444;color:#fca5a5}
+.copybox pre{
+  margin:0;
+  padding:14px;
+  overflow-x:auto;
+  color:#e2e8f0;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:.84rem;
+  line-height:1.6;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+/* Listas de comprobación */
+.chk{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:11px 12px;
+  border-radius:10px;
+  border:1px solid var(--blue);
+  background:#ffffff05;
+  margin:0 0 9px;
+  cursor:pointer;
+  min-height:44px;
+  font-size:.94rem;
+  transition:background .16s,border-color .16s;
+}
+.chk:hover{background:#ffffff0a;border-color:var(--acc)}
+.chk input{
+  appearance:none;-webkit-appearance:none;
+  flex:0 0 auto;
+  width:22px;height:22px;
+  margin:2px 0 0;
+  border-radius:6px;
+  border:2px solid var(--blue);
+  background:transparent;
+  cursor:pointer;
+  position:relative;
+  transition:background .16s,border-color .16s;
+}
+.chk input:checked{background:var(--acc);border-color:var(--acc)}
+.chk input:checked::after{
+  content:"";
+  position:absolute;left:6px;top:2px;
+  width:6px;height:11px;
+  border:solid #06121f;
+  border-width:0 3px 3px 0;
+  transform:rotate(45deg);
+}
+.chk input:checked + span{color:var(--muted);text-decoration:line-through}
+.chk span{flex:1 1 auto}
+
+/* Desplegables */
+details{
+  border:1px solid var(--blue);
+  border-radius:12px;
+  background:var(--card);
+  margin:0 0 10px;
+  overflow:hidden;
+}
+details[open]{border-color:#38bdf866}
+summary{
+  cursor:pointer;
+  padding:14px 44px 14px 15px;
+  min-height:48px;
+  display:flex;align-items:center;
+  font-weight:600;
+  font-size:.95rem;
+  list-style:none;
+  position:relative;
+  transition:background .16s;
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:#ffffff08}
+summary::after{
+  content:"+";
+  position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  font-size:1.25rem;font-weight:400;color:var(--acc);
+  line-height:1;
+}
+details[open] summary::after{content:"–"}
+details[open] summary{border-bottom:1px solid var(--blue);background:#38bdf80d}
+.qabody{padding:14px 15px;font-size:.94rem;color:var(--muted)}
+.qabody p:last-child{margin-bottom:0}
+.qabody strong{color:var(--text)}
+
+/* Hero SVG */
+.heromount{
+  display:flex;justify-content:center;
+  margin:0 0 20px;
+}
+.heromount img{width:100%;max-width:380px;height:auto;display:block;border-radius:16px}
+.hero-svg{
+  display:block;
+  width:100%;
+  max-width:380px;
+  height:auto;
+  border-radius:16px;
+  background:#0a0e1a;
+  overflow:hidden;
+}
+
+/* Animaciones del SVG */
+.hs-tw{animation:hsTw 4s ease-in-out infinite}
+@keyframes hsTw{0%,100%{opacity:.15}50%{opacity:.95}}
+
+.hs-enso{
+  transform-box:view-box;transform-origin:200px 230px;
+  animation:hsSpin 90s linear infinite;
+}
+@keyframes hsSpin{to{transform:rotate(360deg)}}
+
+.hs-orbit{
+  transform-box:view-box;transform-origin:200px 230px;
+  animation:hsSpin 26s linear infinite;
+}
+.hs-orbit2{
+  transform-box:view-box;transform-origin:200px 230px;
+  animation:hsSpin 38s linear infinite reverse;
+}
+.hs-rip{
+  transform-box:view-box;transform-origin:200px 230px;
+  animation:hsRip 5.1s ease-out infinite;
+}
+@keyframes hsRip{
+  0%{transform:scale(.62);opacity:.5}
+  70%{opacity:.12}
+  100%{transform:scale(1.45);opacity:0}
+}
+.hs-float{animation:hsFloat 7s ease-in-out infinite}
+@keyframes hsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+.hs-breathe{
+  transform-box:view-box;transform-origin:200px 230px;
+  animation:hsBreathe 6s ease-in-out infinite;
+}
+.hs-breathe2{
+  transform-box:fill-box;transform-origin:center;
+  animation:hsBreathe 5s ease-in-out infinite;
+}
+@keyframes hsBreathe{
+  0%,100%{opacity:.10;transform:scale(1)}
+  50%{opacity:.24;transform:scale(1.12)}
+}
+.hs-p{
+  transform-box:fill-box;transform-origin:center;
+  animation:hsRise 6s linear infinite;
+}
+@keyframes hsRise{
+  0%{transform:translateY(0) scale(.65);opacity:0}
+  18%{opacity:.95}
+  100%{transform:translateY(-150px) scale(1.2);opacity:0}
+}
+.hs-n{
+  transform-box:fill-box;transform-origin:center;
+  animation:hsNod 3.4s ease-in-out infinite;
+}
+@keyframes hsNod{
+  0%,100%{opacity:.35;transform:scale(.85)}
+  50%{opacity:1;transform:scale(1.18)}
+}
+.hs-petal{
+  transform-box:fill-box;transform-origin:center;
+  animation:hsPetal 16s linear infinite;
+  fill:#ffb7d5;
+}
+@keyframes hsPetal{
+  0%{transform:translate(0,-70px) rotate(0deg);opacity:0}
+  8%{opacity:.85}
+  85%{opacity:.55}
+  100%{transform:translate(42px,540px) rotate(330deg);opacity:0}
+}
+.hs-film{
+  stroke-dasharray:34 26;
+  animation:hsDash 7s linear infinite;
+}
+.hs-smoke{
+  stroke-dasharray:12 20;
+  animation:hsDash 9s linear infinite;
+}
+@keyframes hsDash{to{stroke-dashoffset:-260}}
+
+.hs-pulse{
+  transform-box:fill-box;transform-origin:center;
+  animation:hsPulse 3s ease-in-out infinite;
+}
+@keyframes hsPulse{
+  0%,100%{transform:scale(1);opacity:.55}
+  50%{transform:scale(1.7);opacity:.05}
+}
+
+/* Botón volver arriba */
+#top{
+  position:fixed;
+  right:14px;bottom:14px;
+  width:48px;height:48px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  border:1px solid var(--blue);
+  background:var(--card);
+  color:var(--acc);
+  font-size:1.15rem;
+  cursor:pointer;
+  z-index:20;
+  opacity:0;pointer-events:none;
+  transform:translateY(10px);
+  transition:opacity .22s,transform .22s;
+  box-shadow:0 6px 22px #0006;
+}
+#top.on{opacity:1;pointer-events:auto;transform:none}
+
+/* Créditos */
+.author{
+  font-size:clamp(1.9rem,8vw,3rem);
+  font-weight:900;
+  letter-spacing:-.03em;
+  line-height:1.1;
+  margin:.15em 0 .1em;
+  background:linear-gradient(100deg,var(--acc),var(--acc2) 45%,var(--gold));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+}
+.authrole{
+  font-size:.8rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:700;
+  margin:0 0 1.2em;
+}
+.meta{
+  display:grid;gap:8px;
+  font-size:.88rem;
+  color:var(--muted);
+  margin:0;
+}
+.meta div{display:flex;gap:10px;flex-wrap:wrap}
+.meta dt{font-weight:700;color:var(--text);min-width:150px}
+.meta dd{margin:0}
+
+/* Aviso de copia */
+.toast{
+  position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);
+  background:#0f172a;color:#e2e8f0;
+  border:1px solid #1e3a5f;
+  border-radius:12px;
+  padding:12px 18px;
+  font-size:.86rem;
+  z-index:80;
+  opacity:0;pointer-events:none;
+  transition:opacity .22s,transform .22s;
+  max-width:min(92vw,420px);
+  text-align:center;
+  box-shadow:0 10px 34px #0008;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ============================================================
+   IMPRESIÓN
+   ============================================================ */
+@media print{
+  @page{size:A4 portrait;margin:14mm 12mm}
+  html,body{
+    background:#fff !important;
+    color:#000 !important;
+    padding:0 !important;
+    font-size:11pt;
+  }
+  #nav,#dr,#top,.toast,.copybtn,.noprint{display:none !important}
+  .sec{display:block !important;animation:none !important}
+  .sec::before{
+    content:attr(data-t);
+    display:block;
+    font-size:13pt;font-weight:800;
+    border-bottom:2px solid #000;
+    margin:0 0 8pt;
+    padding-bottom:3pt;
+  }
+  .wrap{max-width:none;padding:0}
+  .card,.tw,details,.copybox,.note{
+    background:#fff !important;
+    border:1px solid #999 !important;
+    box-shadow:none !important;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  .copybox pre{
+    background:#fff !important;color:#000 !important;
+    white-space:pre-wrap;word-break:break-word;
+  }
+  .copybox .cbhead{background:#fff !important;border-bottom:1px solid #999 !important}
+  .copybox .cbtitle{color:#000 !important}
+  table{min-width:0;font-size:9pt}
+  th{background:#eee !important;color:#000 !important}
+  th,td{border:1px solid #999 !important}
+  tr{break-inside:avoid;page-break-inside:avoid}
+  .hero-svg{background:#fff !important}
+  .hero-svg *{animation:none !important}
+  details{break-inside:avoid}
+  details > summary{list-style:none}
+  .badge,.author{-webkit-text-fill-color:#000 !important;color:#000 !important;background:none !important}
+  a{color:#000 !important;text-decoration:underline}
+  .lead,.qabody,.meta,small{color:#222 !important}
+  h1,h2,h3,h4{color:#000 !important}
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .hero-svg *{animation:none !important}
+  .sec.on{animation:none}
+  *{transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     BARRA SUPERIOR FIJA
+     ============================================================ -->
+<nav id="nav" aria-label="Navegación principal">
+  <div class="navrow">
+    <button class="chip" id="mb" aria-label="Abrir índice" aria-expanded="false" aria-controls="dr">☰ Índice</button>
+
+    <div class="chips" id="chips" role="group" aria-label="Secciones del tutorial">
+      <button class="chip on" data-i="0" aria-current="page">INICIO</button>
+      <button class="chip" data-i="1">CONCEPTOS</button>
+      <button class="chip" data-i="2">PROCEDIMIENTO</button>
+      <button class="chip" data-i="3">PRÁCTICA</button>
+      <button class="chip" data-i="4">21 Preguntas (Q&amp;A)</button>
+      <button class="chip" data-i="5">ERRORES</button>
+      <button class="chip" data-i="6">RESUMEN</button>
+      <button class="chip" data-i="7">FUENTES</button>
+      <button class="chip" data-i="8">CRÉDITOS</button>
+    </div>
+
+    <div class="tools">
+      <button class="tbtn" id="fsm" aria-label="Reducir tamaño de letra" title="Reducir letra">A−</button>
+      <button class="tbtn" id="fsp" aria-label="Aumentar tamaño de letra" title="Aumentar letra">A+</button>
+      <button class="tbtn" id="thm" aria-label="Cambiar entre tema oscuro y claro" title="Tema">◐</button>
+      <button class="tbtn" id="prt" aria-label="Imprimir o guardar como PDF" title="Imprimir / PDF">⎙</button>
+    </div>
+  </div>
+  <div class="pbar" aria-hidden="true"><i id="pfill"></i></div>
+</nav>
+
+<!-- PANEL LATERAL DE ÍNDICE (justo después del </nav>) -->
+<div id="dr" aria-label="Índice de secciones" tabindex="-1">
+  <div class="drhead">
+    <p class="drtitle">Índice del tutorial</p>
+    <input type="search" class="drsearch" id="drq" placeholder="Filtrar secciones…" aria-label="Filtrar secciones del índice" autocomplete="off">
+  </div>
+  <div id="drlist"></div>
+  <p class="drempty" id="drempty">Sin coincidencias.</p>
+  <p class="drfoot">Pulsa una entrada para ir a esa sección. Cierra con Esc, con el botón «☰ Índice» o tocando fuera.</p>
+</div>
+
+<main>
+
+<!-- ============================================================
+     0 · INICIO
+     ============================================================ -->
+<section class="sec on" id="inicio" data-t="INICIO">
+  <div class="wrap">
+
+    <span class="badge">Nivel 0 → Profesional</span>
+    <h1>El Método Japonés para Perfumes</h1>
+    <p class="lead">Manual maestro y tutorial paso a paso para que cualquier fragancia dure mucho más sobre tu piel. Sin comprar perfumes más caros: entendiendo la química de la piel y aplicando una base lipídica.</p>
+
+    <div class="heromount" data-hero="1" role="img" aria-label="Ilustración animada del Método Japonés para Perfumes: una gota dorada de base lipídica se posa sobre la piel y libera las notas de salida, corazón y fondo entre pétalos de sakura."></div>
+
+    <div class="btnrow">
+      <button class="btn ghost" id="ix">☰ Ver índice</button>
+      <button class="btn" data-go="1">Empezar por CONCEPTOS →</button>
+    </div>
+
+    <hr>
+
+    <div class="grid g3">
+      <div class="card">
+        <h3>Qué es</h3>
+        <p>Un protocolo de aplicación en tres tiempos: preparar la piel con una <strong>película lipídica</strong>, pulverizar a la distancia correcta y <strong>no frotar</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>Para qué sirve</h3>
+        <p>Para que las moléculas aromáticas —que son <strong>liposolubles</strong>— encuentren un sustrato graso donde anclarse y se liberen poco a poco durante horas.</p>
+      </div>
+      <div class="card">
+        <h3>Por qué importa</h3>
+        <p>En piel seca, el alcohol se evapora muy rápido y arrastra el perfume. La mayoría de las quejas de duración no son un problema del perfume, sino de la superficie cutánea.</p>
+      </div>
+    </div>
+
+    <div class="note gold">
+      <p><strong>La idea central en una frase:</strong> aplicar perfume sobre piel seca es como verter agua sobre arena seca: el líquido desaparece sin dejar residuo funcional. Sobre una piel con una fina capa lipídica, el aroma se libera de forma progresiva y controlada.</p>
+    </div>
+
+    <h2>Los tres pilares del método</h2>
+    <ol>
+      <li><strong>Preparación (base lipídica).</strong> Dos gotas de aceite de jojoba, aceite de coco fraccionado o una porción de vaselina del tamaño de media lenteja, distribuida en los puntos de pulso.</li>
+      <li><strong>Aplicación (distancia y dosis).</strong> Entre 15 y 20 cm de la piel, con un número de pulverizaciones ajustado a la concentración del perfume.</li>
+      <li><strong>Respeto mecánico (cero fricción).</strong> No frotar las muñecas: la fricción genera calor y altera las notas de salida.</li>
+    </ol>
+
+    <h2>Resultados que describe el método</h2>
+    <div class="tw">
+      <table>
+        <caption>Techos de fijación descritos en el manual</caption>
+        <thead>
+          <tr><th>Superficie</th><th>Duración de referencia</th><th>Observación</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Piel (con método completo)</td><td>8 – 12 horas</td><td>Multiplica por dos o tres la duración habitual</td></tr>
+          <tr><td>Textiles y cabello</td><td>24 horas o más</td><td>Sin metabolismo ni degradación enzimática cutánea</td></tr>
+          <tr><td>Notas de salida</td><td>Minutos</td><td>Moléculas ligeras, cítricas y alcohólicas</td></tr>
+          <tr><td>Notas de corazón</td><td>1 – 2 horas</td><td>Moléculas de peso molecular medio</td></tr>
+          <tr><td>Notas de fondo</td><td>Horas o días</td><td>Maderas, resinas, almizcle, vainilla</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <p><strong>Antes de empezar:</strong> este tutorial describe procedimientos cosméticos de aplicación y formulación sencilla. No sustituye el consejo dermatológico. Si tienes piel reactiva, realiza siempre una prueba de parche de 24 horas en la flexura interna del codo.</p>
+    </div>
+
+    <h2>Cómo usar este tutorial</h2>
+    <div class="grid g2">
+      <div class="card tight">
+        <h4>Ruta recomendada</h4>
+        <p><small>INICIO → CONCEPTOS → PROCEDIMIENTO → PRÁCTICA → 21 Preguntas (Q&amp;A) → ERRORES → RESUMEN → FUENTES → CRÉDITOS</small></p>
+      </div>
+      <div class="card tight">
+        <h4>Atajos</h4>
+        <p><small>Puedes saltar directamente a <strong>21 Preguntas (Q&amp;A)</strong> si solo quieres resolver dudas concretas, o a <strong>PRÁCTICA</strong> si ya conoces la teoría y quieres formular.</small></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     1 · CONCEPTOS
+     ============================================================ -->
+<section class="sec" id="conceptos" data-t="CONCEPTOS">
+  <div class="wrap">
+    <span class="badge">Nivel 0 · Fundamentos</span>
+    <h2>Conceptos: por qué el método funciona</h2>
+    <p class="lead">Antes de aplicar nada, necesitas entender dos cosas: qué le pasa a tu piel y qué le pasa a la molécula de perfume cuando toca esa piel.</p>
+
+    <h3>0.1 · El problema de la evaporación acelerada en piel seca</h3>
+    <p>La mayoría de los usuarios atribuyen la escasa durabilidad de sus fragancias a una mala calidad del producto o a concentraciones deficientes. Sin embargo, el factor determinante es el <strong>estado de la superficie cutánea</strong>.</p>
+    <p>Cuando un perfume en solución alcohólica se pulveriza sobre piel deshidratada, el alcohol se evapora vertiginosamente arrastrando las moléculas aromáticas sin que estas encuentren un sustrato de anclaje. Aplicar perfume en piel seca es equivalente a verter agua sobre arena seca: el fluido desaparece en poco tiempo sin dejar residuo funcional.</p>
+
+    <div class="note">
+      <p><strong>Consecuencia práctica:</strong> antes de cambiar de perfume, cambia la superficie sobre la que lo aplicas.</p>
+    </div>
+
+    <h3>0.2 · Química de la fragancia: moléculas liposolubles y pirámide olfativa</h3>
+    <p>Un perfume es una solución compleja de compuestos aromáticos disueltos en alcohol de alta pureza y una pequeña proporción de agua. Las moléculas olfativas se clasifican según su peso molecular y volatilidad en tres niveles dentro de la <strong>pirámide olfativa</strong>:</p>
+    <ol>
+      <li><strong>Notas de salida</strong> (cítricas y alcohólicas): moléculas ligeras de evaporación rápida, del orden de minutos.</li>
+      <li><strong>Notas de corazón</strong> (florales y especiadas): moléculas de peso medio que perduran entre 1 y 2 horas.</li>
+      <li><strong>Notas de fondo</strong> (maderas, resinas, almizcle, vainilla): moléculas pesadas que pueden mantenerse durante horas o días.</li>
+    </ol>
+
+    <div class="card">
+      <h4>El mecanismo del anclaje lipídico</h4>
+      <p>Desde el punto de vista químico, la inmensa mayoría de las moléculas aromáticas son <strong>liposolubles</strong> (solubles en grasas y lípidos) e hidrófobas (se repelen con el agua).</p>
+      <p>Al crear una película lípida microscópica sobre la piel, las moléculas aromáticas quedan atrapadas en la matriz grasa —similar a las migas de pan retenidas en una sartén engrasada— y se liberan de manera progresiva y controlada a lo largo de horas.</p>
+      <p>Asimismo, la base lipídica forma una capa oclusiva que reduce la <strong>pérdida transepidérmica de agua (TEWL)</strong>, estabilizando la flexibilidad y la temperatura cutánea.</p>
+    </div>
+
+    <h3>0.3 · Requisitos de materiales, herramientas e INCI oficial</h3>
+    <p>Para ejecutar el Método Japonés con rigor técnico, se deben seleccionar insumos puros <strong>no perfumados</strong>. El etiquetado debe verificar los nombres de la Nomenclatura Internacional de Ingredientes Cosméticos (INCI):</p>
+
+    <div class="tw">
+      <table>
+        <caption>Materiales homologados y su denominación INCI</caption>
+        <thead>
+          <tr><th>Insumo / Herramienta</th><th>Denominación INCI / Técnica</th><th>Función en el método</th><th>Precio aprox.</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Aceite de Jojoba 100% puro</strong></td>
+            <td><em>Simmondsia Chinensis Seed Oil</em></td>
+            <td>Cera líquida análoga al sebo humano. Base fijadora principal.</td>
+            <td>4 € – 8 € (30 ml)</td>
+          </tr>
+          <tr>
+            <td><strong>Aceite de coco fraccionado</strong></td>
+            <td><em>Caprylic/Capric Triglyceride</em></td>
+            <td>Triglicérido neutro, inodoro y fluido. Ideal para mezclas y roll-on.</td>
+            <td>5 € – 10 € (100 ml)</td>
+          </tr>
+          <tr>
+            <td><strong>Vaselina blanca pura</strong></td>
+            <td><em>Petrolatum</em> / vaselina filante</td>
+            <td>Emoliente oclusivo de máxima resistencia económica.</td>
+            <td>2 € – 4 € (100 g)</td>
+          </tr>
+          <tr>
+            <td><strong>Glicerina vegetal (opcional)</strong></td>
+            <td><em>Glycerin</em> (Norma USP / Ph. Eur.)</td>
+            <td>Humectante hidrófilo para mezclas ligeras con agua.</td>
+            <td>3 € – 5 € (100 ml)</td>
+          </tr>
+          <tr>
+            <td><strong>Frasco roll-on (10 ml)</strong></td>
+            <td>Vidrio ámbar o transparente con esfera</td>
+            <td>Contenedor para la versión portátil diluida.</td>
+            <td>1 € – 2 € / unidad</td>
+          </tr>
+          <tr>
+            <td><strong>Dosificador / pipeta graduada (2–5 ml)</strong></td>
+            <td>Polipropileno de grado cosmético</td>
+            <td>Trasvase preciso de fluido al roll-on sin desperdicio.</td>
+            <td>0,50 € / unidad</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note danger">
+      <p><strong>Advertencia de compra:</strong> descarta cualquier aceite comercial que contenga la palabra <em>Parfum</em> o <em>Fragrance</em> en su etiqueta INCI, así como el aceite mineral de bebé perfumado o el aceite de coco virgen (este último se solidifica a menos de 24 °C y altera el olor).</p>
+    </div>
+
+    <h3>0.4 · Medidas de seguridad operativa, protección y fotosensibilidad</h3>
+
+    <ol>
+      <li><strong>Protección personal.</strong> Durante el manipuleo y trasvase de perfumes concentrados hacia recipientes portátiles, utiliza <strong>guantes de protección</strong> y <strong>gafas de seguridad</strong> para evitar molestias o salpicaduras de alcohol aromático en los ojos.</li>
+      <li><strong>Fototoxicidad por cítricos.</strong> Determinadas esencias (especialmente el aceite esencial de bergamota no <em>bergapteno-free</em>) contienen furocumarinas fotosensibles. Su aplicación sobre piel expuesta a radiación solar directa puede desencadenar hiperpigmentación (manchas oscuras).</li>
+      <li><strong>Prueba de parche (<em>patch test</em>).</strong> Antes de emplear cualquier base lipídica o fragancia nueva, aplica una gota de la base y una pulverización de perfume en la flexura interna del codo y observa la zona durante 24 horas para descartar sensibilidad.</li>
+    </ol>
+
+    <h4>Lista de comprobación de seguridad</h4>
+    <label class="chk"><input type="checkbox" data-k="seg1"><span>Tengo guantes y gafas de protección para el trasvase.</span></label>
+    <label class="chk"><input type="checkbox" data-k="seg2"><span>He verificado el INCI de todos los insumos y ninguno contiene <em>Parfum</em> ni <em>Fragrance</em>.</span></label>
+    <label class="chk"><input type="checkbox" data-k="seg3"><span>He realizado la prueba de parche de 24 horas en la flexura del codo.</span></label>
+    <label class="chk"><input type="checkbox" data-k="seg4"><span>Evito aplicar fragancias cítricas sobre piel que vaya a exponerse al sol directo.</span></label>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     2 · PROCEDIMIENTO
+     ============================================================ -->
+<section class="sec" id="procedimiento" data-t="PROCEDIMIENTO">
+  <div class="wrap">
+    <span class="badge">Niveles inicial · intermedio · avanzado</span>
+    <h2>Procedimiento maestro</h2>
+    <p class="lead">Tres bloques consecutivos: preparar la piel, aplicar correctamente y, si quieres más, estratificar en capas.</p>
+
+    <h3>1 · Configuración y preparación de la piel</h3>
+
+    <h4>1.1 · Diagnóstico cutáneo: la prueba del trazo de tiza</h4>
+    <p>Para determinar el grado de sequedad de la piel de forma inmediata y objetiva:</p>
+    <ol>
+      <li>Desliza la parte dorsal de la uña (sin ejercer presión excesiva) a lo largo del antebrazo.</li>
+      <li>Si el trazo deja un surco blanquecino o descamación visible (similar a una marca de tiza sobre una pizarra), la piel padece <strong>deshidratación lipídica severa</strong>.</li>
+      <li>En este estado, los aceites naturales son insuficientes para fijar las moléculas aromáticas, haciendo obligatorio el uso del método.</li>
+    </ol>
+
+    <h4>1.2 · Protocolo de higiene: la ventana de 5 minutos post-ducha</h4>
+    <p>El momento óptimo para la preparación cutánea ocurre inmediatamente después del baño:</p>
+    <ul>
+      <li>Límpiate con jabón neutro o sin fragancia para no distorsionar las notas del perfume.</li>
+      <li>Seca el cuerpo a pequeños toques con la toalla (sin frotar agresivamente), conservando una ligera humedad e hiperemia térmica residual en la piel.</li>
+      <li>La ventana de oportunidad es de <strong>5 minutos</strong>: en este intervalo, los poros y la capa córnea se encuentran receptivos para absorber la capa lipídica.</li>
+    </ul>
+
+    <h4>1.3 · Selección, acondicionamiento y calentamiento de la base lipídica</h4>
+    <p>Según la disponibilidad y el tipo de piel, selecciona una de las tres bases homologadas:</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <h3>Opción A · Jojoba</h3>
+        <p><strong>Recomendación maestra.</strong></p>
+        <p><strong>Dosis:</strong> 2 gotas (aprox. 0,05 ml por gota).</p>
+        <p><strong>Procedimiento:</strong> deposita las dos gotas sobre la yema del dedo índice, frota levemente contra el pulgar para atemperar el fluido y distribuye una película fina en los puntos de pulso.</p>
+      </div>
+      <div class="card">
+        <h3>Opción B · Coco fraccionado</h3>
+        <p><strong>Dosis:</strong> 2 gotas.</p>
+        <p><strong>Procedimiento:</strong> al ser extremadamente fluido e inodoro, se extiende con facilidad dejando una textura satinada no grasa.</p>
+      </div>
+      <div class="card">
+        <h3>Opción C · Vaselina blanca</h3>
+        <p><strong>Alternativa económica.</strong></p>
+        <p><strong>Dosis:</strong> cantidad equivalente a <strong>media lenteja</strong>.</p>
+        <p><strong>Procedimiento:</strong> trabaja la vaselina frotándola entre los dedos índice y pulgar hasta que pierda su opacidad y se vuelva transparente por acción del calor corporal.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <p><strong>Criterio de acondicionamiento:</strong> tras aplicar la base, aguarda entre <strong>60 y 90 segundos</strong>. La piel debe presentar un tacto satinado pero jamás resbaladizo o aceitoso. Si la luz refleja un brillo excesivo, retira el excedente presionando suavemente un pañuelo de papel seco.</p>
+    </div>
+
+    <h3>2 · Procedimiento maestro de aplicación</h3>
+
+    <h4>2.1 · Inspección y calibración del atomizador</h4>
+    <p>Antes del rociado cutáneo, verifica el estado mecánico del atomizador del frasco:</p>
+    <ol>
+      <li>Realiza un disparo de prueba sobre un papel seco a 15 cm de distancia.</li>
+      <li><strong>Patrón correcto:</strong> se observa una neblina microdispersa, homogénea y fina.</li>
+      <li><strong>Patrón defectuoso:</strong> el atomizador emite chorros continuos, gotas gruesas o disparos torcidos.</li>
+      <li><strong>Solución:</strong> limpia la boquilla con un paño humedecido en agua tibia para disolver residuos cristalizados de esencias o polímeros, deja secar e inspecciona nuevamente.</li>
+    </ol>
+
+    <h4>2.2 · Cálculo de dosificación y distancia según concentración</h4>
+    <p>Sostén el frasco a una distancia estandarizada de <strong>15 a 20 cm</strong> de la piel. Disparar a menos de 15 cm encharca la zona y dificulta la evaporación paulatina; disparar a más de 20 cm provoca la dispersión aérea de las microgotas.</p>
+
+    <div class="tw">
+      <table>
+        <caption>Ajuste de dosis según la categoría de concentración del perfume</caption>
+        <thead>
+          <tr><th>Categoría comercial</th><th>% esencia aromática</th><th>Nº pulverizaciones recomendadas</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Eau de Cologne (EdC)</strong></td><td>2 % – 5 %</td><td>6 a 8 pulverizaciones</td></tr>
+          <tr><td><strong>Eau de Toilette (EdT)</strong></td><td>5 % – 15 %</td><td>4 a 6 pulverizaciones</td></tr>
+          <tr><td><strong>Eau de Parfum (EdP)</strong></td><td>15 % – 20 %</td><td>3 a 4 pulverizaciones</td></tr>
+          <tr><td><strong>Extracto / Parfum</strong></td><td>20 % – 40 %</td><td>1 a 2 pulverizaciones</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note gold">
+      <p><strong>Norma cultural japonesa (<em>Sumi-hara</em>):</strong> en la cultura japonesa se evita la contaminación u ofensiva olfativa (<em>sumi-hara</em> o acoso por olor). La fragancia debe ser un descubrimiento sutil al acercarse a la persona, no una presencia invasiva que anteceda al individuo.</p>
+    </div>
+
+    <h4>2.3 · Mapeo anatómico de puntos de pulso y microclimas corporales</h4>
+    <p>Los puntos de pulso corresponden a zonas donde los vasos sanguíneos discurren próximos a la epidermis, generando un microclima térmico que ayuda a proyectar la fragancia:</p>
+    <ol>
+      <li><strong>Cara interna de las muñecas:</strong> punto clásico de proyección vascular.</li>
+      <li><strong>Flexura interna de los codos:</strong> zona protegida de baja fricción.</li>
+      <li><strong>Laterales del cuello</strong> (bajo la mandíbula): proyección lateral cercana al ángulo de saludo.</li>
+      <li><strong>Centro del pecho:</strong> difusión vertical bajo la vestimenta.</li>
+      <li><strong>Nuca:</strong> zona de estela proyectiva posterior al caminar.</li>
+      <li><strong>Parte posterior de las rodillas:</strong> aplicación inferior; el calor corporal asciende envolviendo el cuerpo.</li>
+    </ol>
+
+    <h4>2.4 · La regla de oro mecánica: eliminación de la fricción</h4>
+    <p>El error mecánico más recurrente consiste en frotar las muñecas entre sí tras la aplicación.</p>
+    <ul>
+      <li><strong>Efecto de la fricción:</strong> genera calor localizado que altera las notas de salida más volátiles (cítricos y aromas frescos) y modifica el curso natural de la pirámide olfativa.</li>
+      <li><strong>Procedimiento correcto:</strong> pulveriza sobre la película lipídica y permite que el líquido se asiente de forma pasiva sobre la piel.</li>
+    </ul>
+
+    <h3>3 · Técnicas avanzadas y estratificación</h3>
+
+    <h4>3.1 · El método <em>Wasa</em>: estratificación en capas con pausas fijadoras</h4>
+    <p>Inspirado en la técnica tradicional japonesa de superposición en capas (<em>Wasa</em>), este protocolo incrementa la tridimensionalidad y la permanencia de la fragancia sin saturar los receptores olfativos:</p>
+    <ol>
+      <li>
+        <strong>Fase 1 · Capa base de anclaje.</strong>
+        <ul>
+          <li>Aplica la base lipídica (jojoba o coco fraccionado) en muñecas, cuello y pecho.</li>
+          <li>Aplica el <strong>50 % de las pulverizaciones totales</strong> correspondientes a tu fragancia.</li>
+          <li>Cronometra una pausa estricta de <strong>3 minutos</strong>. Durante este tiempo, la solución alcohólica inicial se volatiliza y las notas medias y de fondo se fijan en el lípido.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Fase 2 · Capa de proyección externa.</strong>
+        <ul>
+          <li>Aplica el <strong>50 % restante de las pulverizaciones</strong> en zonas complementarias: nuca, flexura de codos o ropa.</li>
+          <li>Esta estratificación crea dos planos temporales de evaporación, aumentando sustancialmente la riqueza y la longevidad del aroma.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h4>3.2 · Aplicación capilar segura: método del cepillo</h4>
+    <p>El cabello es un excelente retenedor aromático debido a la estructura porosa de la queratina; sin embargo, rociar perfume directamente reseca la fibra capilar por su contenido alcohólico.</p>
+    <ol>
+      <li>Pulveriza <strong>2 veces</strong> tu fragancia sobre las cerdas de un cepillo de madera o de cerdas naturales a 15 cm.</li>
+      <li>Espera entre 10 y 15 segundos para permitir la evaporación parcial del vehículo alcohólico.</li>
+      <li>Peina el cabello de medios a puntas suavemente.</li>
+    </ol>
+
+    <h4>3.3 · Anclaje textil y precauciones en telas delicadas y joyería</h4>
+    <p>En fibras textiles, el perfume puede perdurar más de <strong>24 horas</strong> al no existir metabolismo ni degradación enzimática o cutánea.</p>
+    <ul>
+      <li><strong>Puntos textiles clave:</strong> interior del cuello de camisas, forro interno de chaquetas, pañuelos y bufandas.</li>
+      <li><strong>Telas delicadas:</strong> en sedas, satén o prendas blancas o claras, realiza una prueba previa en una costura invisible, ya que los aceites y colorantes pueden generar cercos o manchas.</li>
+      <li><strong>Joyería y perlas:</strong> evita el contacto de fragancias con perlas, piedras porosas o joyería fina; el alcohol deshidrata y deteriora irreversiblemente el nácar.</li>
+    </ul>
+
+    <h4>Lista de comprobación del procedimiento</h4>
+    <label class="chk"><input type="checkbox" data-k="p1"><span>He hecho la prueba del trazo de tiza y sé si mi piel es seca.</span></label>
+    <label class="chk"><input type="checkbox" data-k="p2"><span>Aplico la base dentro de la ventana de 5 minutos tras la ducha.</span></label>
+    <label class="chk"><input type="checkbox" data-k="p3"><span>Espero entre 60 y 90 segundos tras la base antes de pulverizar.</span></label>
+    <label class="chk"><input type="checkbox" data-k="p4"><span>He probado el atomizador sobre papel y sale neblina fina.</span></label>
+    <label class="chk"><input type="checkbox" data-k="p5"><span>Pulverizo a 15–20 cm y no froto las muñecas.</span></label>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     3 · PRÁCTICA
+     ============================================================ -->
+<section class="sec" id="practica" data-t="PRÁCTICA">
+  <div class="wrap">
+    <span class="badge">Nivel avanzado · profesional</span>
+    <h2>Práctica: proyectos integradores y casos completos</h2>
+    <p class="lead">Aquí pasas de la teoría a la ejecución. Cuatro bloques: roll-on portátil, <em>Nioibukuro</em>, tradición japonesa aplicada y dos casos prácticos completos.</p>
+
+    <h3>3.4 · Proyecto integrador 1: formulación del roll-on portátil al 20 %</h3>
+    <p>Para retocar la fragancia durante viajes o largas jornadas sin transportar frascos de vidrio voluminosos.</p>
+
+    <div class="card">
+      <h4>Instrumental requerido</h4>
+      <ul>
+        <li>1 frasco roll-on de vidrio de 10 ml con esfera metálica o cerámica.</li>
+        <li>1 pipeta o dosificador graduado de 2 ml o 5 ml.</li>
+        <li>1 vasito de vidrio limpio o vaso pequeño.</li>
+      </ul>
+    </div>
+
+    <h4>Procedimiento de manufactura paso a paso</h4>
+    <div class="copybox">
+      <div class="cbhead">
+        <span class="cbtitle">Receta copiable · Roll-on al 20 %</span>
+        <button class="copybtn" data-target="copy-rollon">COPIAR</button>
+      </div>
+      <pre id="copy-rollon">ROLL-ON PORTÁTIL DE PERFUME AL 20 % (frasco de 10 ml)
+
+Materiales:
+- 1 frasco roll-on de vidrio de 10 ml
+- 1 pipeta o dosificador graduado de 2 ml o 5 ml
+- 1 vasito de vidrio limpio
+- Aceite de coco fraccionado o aceite de jojoba
+- Tu perfume
+
+Pasos:
+1. Coloca el vasito de vidrio sobre una superficie plana.
+2. Ejecuta 20 pulverizaciones directas de tu perfume hacia el interior del vasito (equivale aproximadamente a 2 ml de fluido).
+3. Aspira los 2 ml de perfume utilizando el dosificador graduado.
+4. Trasvasa los 2 ml dentro del frasco roll-on de 10 ml.
+5. Completa el volumen restante del frasco vertiendo 8 ml de aceite de coco fraccionado o de jojoba.
+6. Coloca el obturador de la esfera roll-on, enrosca el tapón y agita suavemente durante 30 segundos para homogeneizar la emulsión lipídica.
+7. Modo de uso: aplica una pasada ligera en muñecas o nuca como refuerzo durante el día.
+
+Seguridad: usa guantes y gafas de protección durante el trasvase.</pre>
+    </div>
+
+    <div class="note warn">
+      <p><strong>Precaución:</strong> durante el trasvase de perfumes concentrados utiliza guantes y gafas de seguridad. Trabaja sobre una superficie estable y alejada de fuentes de calor.</p>
+    </div>
+
+    <h3>4.1 · Proyecto integrador 2: elaboración de <em>Nioibukuro</em> artesanal</h3>
+    <p>El <em>Nioibukuro</em> (匂い袋) es una bolsita aromática tradicional japonesa utilizada desde el período Heian para perfumar estancias, armarios y vestimenta.</p>
+
+    <div class="copybox">
+      <div class="cbhead">
+        <span class="cbtitle">Receta copiable · Nioibukuro</span>
+        <button class="copybtn" data-target="copy-nioi">COPIAR</button>
+      </div>
+      <pre id="copy-nioi">NIOIBUKURO ARTESANAL (bolsita aromática japonesa)
+
+Materiales:
+- Tela de algodón o lino no tratado
+- Arroz blanco crudo o 4 esferas de algodón seco
+- Tu perfume
+- Cordón de seda o algodón
+
+Pasos:
+1. Cortar un cuadrado de tela de algodón o lino no tratado (5 x 15 cm).
+2. Depositar en el centro un puñado de arroz blanco crudo o 4 esferas de algodón seco (actúan como sustrato poroso de absorción).
+3. Efectuar 10 pulverizaciones directas del perfume sobre el sustrato.
+4. Reunir las esquinas de la tela y atar firmemente con un cordón de seda o algodón.
+5. Colocar en cajones de ropa, interior de armarios o maletas para obtener un aroma constante durante semanas.</pre>
+    </div>
+
+    <h3>4.2 · Neutralización del <em>Kareishu</em> y baño <em>Yuzuyu</em></h3>
+    <p>En la cosmetología japonesa, oler bien implica como paso previo la neutralización de los olores corporales.</p>
+
+    <div class="card">
+      <h4>El fenómeno del <em>Kareishu</em></h4>
+      <p>Un estudio científico liderado por la firma <strong>Shiseido</strong> en el año 2000 identificó la molécula <strong>2-nonenal</strong>, un aldehído no saturado resultante de la oxidación lipídica en la piel por el paso del tiempo.</p>
+      <h4>Solución tradicional: jabón de Kaki (Kakitanin)</h4>
+      <p>El tanino extraído del caqui (<em>Diospyros kaki</em>) reacciona químicamente neutralizando el 2-nonenal. El uso de jabón de kaki (<em>Kakitanin soap</em>) es un estándar en Japón para preparar la piel antes de cualquier ritual aromático.</p>
+      <h4>Ritual <em>Yuzuyu</em> (柚子湯)</h4>
+      <p>Tradición del solsticio de invierno en la que se sumergen frutos cítricos de yuzu (o, en su defecto, cáscaras de naranja o mandarina) en el agua de baño caliente. Los aceites esenciales volátiles hidrodestilados de forma natural impregnan la capa córnea, aportando una base limpia e idónea para el perfume.</p>
+    </div>
+
+    <h3>4.3 · Filosofía <em>Monozukuri</em> y el concepto <em>Kōdō</em></h3>
+    <p>El Método Japonés no es un mero truco de ahorro económico, sino la aplicación de principios filosóficos ancestrales:</p>
+    <div class="grid g2">
+      <div class="card">
+        <h4><em>Monozukuri</em> (物作り)</h4>
+        <p>El arte y la maestría técnica de comprender el material a fondo, respetando sus propiedades químicas para obtener su máximo potencial con eficiencia y cero desperdicio.</p>
+      </div>
+      <div class="card">
+        <h4><em>Kōdō</em> (香道) · El Camino del Incienso</h4>
+        <p>Disciplina tradicional iniciada en la era Heian (reflejada en la obra clásica <em>Genji Monogatari</em>). En el <em>Kōdō</em>, el aroma no se «huele» de forma pasiva, sino que se <strong>«escucha»</strong> (<em>kiku</em>), lo que significa prestar una atención consciente, pausada y respetuosa a la evolución de la fragancia.</p>
+      </div>
+    </div>
+
+    <h3>6.1 · Caso práctico A: rutina diaria urbana para piel seca en clima cálido</h3>
+    <div class="card">
+      <p><strong>Perfil:</strong> usuario con trazo de tiza positivo (piel deshidratada) que trabaja en oficina y requiere fijación de 10 horas con un <em>Eau de Toilette</em> cítrico.</p>
+    </div>
+
+    <div class="copybox">
+      <div class="cbhead">
+        <span class="cbtitle">Rutina copiable · Caso práctico A</span>
+        <button class="copybtn" data-target="copy-casoA">COPIAR</button>
+      </div>
+      <pre id="copy-casoA">RUTINA DIARIA URBANA · PIEL SECA EN CLIMA CÁLIDO
+Objetivo: fijación de 10 horas con un Eau de Toilette cítrico.
+
+1. Higiene: ducha tibia con jabón neutro; secado ligero conservando humedad residual.
+2. Base: 2 gotas de aceite de jojoba (Simmondsia Chinensis) distribuidas en muñecas, cuello y nuca. Espera 90 segundos.
+3. Primera capa (método Wasa): 3 pulverizaciones de EdT a 15 cm (2 en muñecas, 1 en pecho). Pausa de 3 minutos.
+4. Segunda capa: 2 pulverizaciones de EdT (1 en la nuca y 1 pasada de cepillo por el cabello).
+5. Resultado esperado: fijación extendida de 4 horas habituales a 10 horas reales sin retoque.</pre>
+    </div>
+
+    <h3>6.2 · Caso práctico B: formulación portátil de emergencia para viajes</h3>
+    <div class="card">
+      <p><strong>Perfil:</strong> usuario en viaje de negocios que no desea facturar líquidos ni transportar frascos frágiles.</p>
+    </div>
+
+    <div class="copybox">
+      <div class="cbhead">
+        <span class="cbtitle">Rutina copiable · Caso práctico B</span>
+        <button class="copybtn" data-target="copy-casoB">COPIAR</button>
+      </div>
+      <pre id="copy-casoB">FORMULACIÓN PORTÁTIL DE EMERGENCIA PARA VIAJES
+Objetivo: cobertura aromática continua durante todo el viaje con equipaje de mano.
+
+1. Preparar un frasco roll-on de 10 ml con 8 ml de aceite de coco fraccionado y 2 ml de tu Eau de Parfum favorito, extraído con dosificador.
+2. Preparar un Nioibukuro con arroz y 10 pulverizaciones dentro de la maleta para mantener la ropa aromatizada de forma pasiva.
+3. Resultado esperado: cobertura aromática continua durante todo el viaje con cumplimiento estricto de normativas de equipaje de mano.</pre>
+    </div>
+
+    <h4>Lista de comprobación de práctica</h4>
+    <label class="chk"><input type="checkbox" data-k="pr1"><span>He preparado el roll-on con 2 ml de perfume y 8 ml de base lipídica.</span></label>
+    <label class="chk"><input type="checkbox" data-k="pr2"><span>He etiquetado el roll-on con la fecha y el perfume utilizado.</span></label>
+    <label class="chk"><input type="checkbox" data-k="pr3"><span>He elaborado un <em>Nioibukuro</em> y lo he colocado en un cajón o maleta.</span></label>
+    <label class="chk"><input type="checkbox" data-k="pr4"><span>He probado la rutina del caso práctico A durante un día completo.</span></label>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     4 · 21 PREGUNTAS (Q&A)
+     ============================================================ -->
+<section class="sec" id="preguntas" data-t="21 Preguntas (Q&amp;A)">
+  <div class="wrap">
+    <span class="badge">Banco de 21 preguntas y respuestas</span>
+    <h2>21 Preguntas (Q&amp;A)</h2>
+    <p class="lead">Ordenadas por nivel de dificultad: básico (1–7), avanzado (8–14) y PRO (15–21). Pulsa cada pregunta para desplegar la respuesta.</p>
+
+    <h3>Nivel básico · preguntas 1 a 7</h3>
+
+    <details class="qa">
+      <summary>Q1 · ¿Por qué mi perfume caro deja de oler tan rápido?</summary>
+      <div class="qabody"><p><strong>R:</strong> En la mayoría de los casos no es un problema de calidad del perfume, sino de sequedad cutánea. La piel seca carece de la capa lipídica necesaria para retener las moléculas aromáticas liposolubles, provocando su evaporación inmediata.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q2 · ¿Cuál es el producto más barato que puedo comprar para usar como base?</summary>
+      <div class="qabody"><p><strong>R:</strong> La vaselina blanca pura (<em>Petrolatum</em>) comercializada en farmacias por 2 € – 4 €. Una pequeña dosis del tamaño de media lenteja dura meses y equivale funcionalmente a fijadores comerciales de 30 €.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q3 · ¿Puedo usar aceite de cocina de oliva o girasol?</summary>
+      <div class="qabody"><p><strong>R:</strong> No se recomienda. Aunque actúan como emolientes, los aceites vegetales de cocina tienden a oxidarse rápidamente con el calor corporal, generando notas alteradas que afectan al perfume y manchan la ropa.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q4 · ¿Por qué no debo frotarme las muñecas tras aplicarme el perfume?</summary>
+      <div class="qabody"><p><strong>R:</strong> Frotar genera fricción y calor localizado que alteran y aceleran la evaporación artificial de las notas de salida (los cítricos y aromas más frescos), modificando el desarrollo de la fragancia.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q5 · ¿Cuántas veces debo pulverizar un Eau de Toilette?</summary>
+      <div class="qabody"><p><strong>R:</strong> De 4 a 6 pulverizaciones distribuidas adecuadamente en los puntos de pulso.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q6 · ¿En qué consiste la prueba del trazo de tiza?</summary>
+      <div class="qabody"><p><strong>R:</strong> Consiste en pasar suavemente el dorso de la uña por el antebrazo. Si deja una marca blanquecina, indica piel seca que requiere el uso de la base lipídica del Método Japonés.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q7 · ¿Cuál es la distancia correcta para rociar el perfume?</summary>
+      <div class="qabody"><p><strong>R:</strong> Entre 15 y 20 centímetros de la piel. Más cerca encharca la zona y más lejos el producto se dispersa en el aire.</p></div>
+    </details>
+
+    <h3>Nivel avanzado · preguntas 8 a 14</h3>
+
+    <details class="qa">
+      <summary>Q8 · ¿Qué diferencia existe entre el aceite de jojoba y el aceite de coco fraccionado?</summary>
+      <div class="qabody"><p><strong>R:</strong> El aceite de jojoba (<em>Simmondsia Chinensis</em>) es químicamente una cera líquida casi idéntica al sebo humano que no se altera con facilidad. El coco fraccionado (<em>Caprylic/Capric Triglyceride</em>) es un triglicérido ultraligero e inodoro que se mantiene siempre fluido y no se solidifica a bajas temperaturas.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q9 · ¿Por qué se debe evitar el aceite de coco virgen?</summary>
+      <div class="qabody"><p><strong>R:</strong> El aceite de coco virgen se solidifica por debajo de los 24 °C y posee un intenso aroma a coco que interfiere y altera la pirámide olfativa del perfume.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q10 · ¿Cómo perfumar el cabello sin dañarlo con el alcohol?</summary>
+      <div class="qabody"><p><strong>R:</strong> Rociando el perfume 2 veces sobre las cerdas de un cepillo, dejando evaporar el alcohol unos segundos y peinando el cabello de medios a puntas.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q11 · ¿Qué es el fenómeno <em>Sumi-hara</em> y cómo se evita?</summary>
+      <div class="qabody"><p><strong>R:</strong> Es el término japonés para la molestia olfativa causada por llevar un perfume abrumador. Se evita moderando las pulverizaciones según la concentración y aplicando el aroma para ser percibido en distancias cortas.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q12 · ¿Por qué la ropa retiene la fragancia más tiempo que la piel?</summary>
+      <div class="qabody"><p><strong>R:</strong> Porque las fibras textiles retienen las moléculas aromáticas sin la influencia del calor corporal metabólico ni las enzimas cutáneas que aceleran la degradación.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q13 · ¿Cuál es la diferencia entre evaporación real y adaptación olfativa?</summary>
+      <div class="qabody"><p><strong>R:</strong> La evaporación real es la desaparición física de las moléculas. La adaptación olfativa es el bloqueo sensorial del cerebro ante un olor continuo. Se diagnostica oliendo tela neutra o café antes de volver a evaluar la piel.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q14 · ¿Qué precauciones deben tomarse con fragancias cítricas y el sol?</summary>
+      <div class="qabody"><p><strong>R:</strong> Muchas fragancias cítricas contienen aceites esenciales (como bergamota) con compuestos fototóxicos que causan manchas permanentes al exponerse al sol directo. Se deben aplicar en zonas cubiertas o al atardecer.</p></div>
+    </details>
+
+    <h3>Nivel PRO · preguntas 15 a 21</h3>
+
+    <details class="qa">
+      <summary>Q15 · ¿Cómo se formula un roll-on de perfume al 20 % de concentración lipídica?</summary>
+      <div class="qabody"><p><strong>R:</strong> Se mezclan en un frasco de 10 ml: 8 ml de aceite de coco fraccionado o jojoba con 2 ml de perfume concentrado (obtenidos mediante 20 pulverizaciones en un vaso y trasvasados con dosificador).</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q16 · ¿Qué especificaciones de farmacopea garantizan la pureza de los insumos en Japón?</summary>
+      <div class="qabody"><p><strong>R:</strong> La Farmacopea Japonesa (<em>Nihon Yakukouhou</em> – JP) establece monografías para la vaselina blanca y la glicerina concentrada, validadas bajo los estándares GSSI (<em>Japanese Standards of Cosmetic Ingredients</em>).</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q17 · ¿Cómo neutraliza el jabón de Kaki la molécula del envejecimiento corporal (2-nonenal)?</summary>
+      <div class="qabody"><p><strong>R:</strong> Contiene taninos de caqui (<em>Diospyros kaki</em>) que reaccionan químicamente con el aldehído 2-nonenal (<em>Kareishu</em>), responsable del olor corporal asociado a la edad identificado por Shiseido en el año 2000.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q18 · ¿En qué consiste exactamente el método de capas <em>Wasa</em>?</summary>
+      <div class="qabody"><p><strong>R:</strong> Consiste en aplicar la base lipídica y el 50 % de las pulverizaciones del perfume, aguardar 3 minutos para la fijación de notas medias y de fondo, y aplicar el 50 % restante en zonas complementarias.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q19 · ¿Cómo influye la pérdida transepidérmica de agua (TEWL) en la evolución del perfume?</summary>
+      <div class="qabody"><p><strong>R:</strong> Al aplicar un emoliente oclusivo se reduce la TEWL, estabilizando la humedad y la temperatura de la epidermis, lo que permite que la evaporación aromática sea uniforme y limpia.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q20 · ¿Qué es un <em>Nioibukuro</em> y cómo se construye desde el punto de vista técnico?</summary>
+      <div class="qabody"><p><strong>R:</strong> Es un saquito de tela de algodón relleno de un sustrato inerte (arroz o algodón) impregnado con 10 pulverizaciones de perfume, que funciona como emisor continuo por difusión pasiva en espacios cerrados.</p></div>
+    </details>
+
+    <details class="qa">
+      <summary>Q21 · ¿Cuál es el techo real de duración del Método Japonés en piel frente a textiles?</summary>
+      <div class="qabody"><p><strong>R:</strong> En piel, el techo real de fijación continua oscila entre 8 y 12 horas (multiplicando por dos o tres la duración habitual). En textiles y cabello, la fijación alcanza o supera las 24 horas continuas.</p></div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     5 · ERRORES
+     ============================================================ -->
+<section class="sec" id="errores" data-t="ERRORES">
+  <div class="wrap">
+    <span class="badge">Diagnóstico y mitigación</span>
+    <h2>Errores, solución de problemas y prevención</h2>
+    <p class="lead">Qué falla, por qué falla y qué hacer de inmediato.</p>
+
+    <h3>5.1 · Matriz de fallos comunes y protocolos de corrección</h3>
+    <div class="tw">
+      <table>
+        <caption>Diagnóstico rápido de errores</caption>
+        <thead>
+          <tr><th>Código</th><th>Síntoma detectado</th><th>Causa raíz química o mecánica</th><th>Protocolo de corrección inmediata</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ERR-01</strong></td>
+            <td>La fragancia se percibe alterada a los pocos minutos.</td>
+            <td>Aplicación de base sobre piel con sudor o interacción con cremas perfumadas previas.</td>
+            <td>Lavar la zona con agua y jabón neutro, secar a toques y reconfigurar el método desde cero.</td>
+          </tr>
+          <tr>
+            <td><strong>ERR-02</strong></td>
+            <td>Sensación grasienta y manchas en la ropa al pulverizar.</td>
+            <td>Exceso de dosificación en la base lipídica (más de 2 gotas o vaselina mal distribuida).</td>
+            <td>Presionar un pañuelo de papel seco sobre la piel hasta que quede solo una textura satinada.</td>
+          </tr>
+          <tr>
+            <td><strong>ERR-03</strong></td>
+            <td>Pérdida de la proyección inicial (las notas de salida se desvanecen al instante).</td>
+            <td>Fricción violenta entre muñecas o rociado a menos de 15 cm de distancia.</td>
+            <td>Eliminar el frotado; mantener la distancia estandarizada de 15–20 cm.</td>
+          </tr>
+          <tr>
+            <td><strong>ERR-04</strong></td>
+            <td>El atomizador arroja un chorro concentrado en lugar de neblina.</td>
+            <td>Cristalización de esencias en el orificio de salida del atomizador.</td>
+            <td>Limpiar el cabezal con un paño húmedo en agua tibia; secar e inspeccionar.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>5.2 · Protocolo de almacenamiento y prevención de oxidación</h3>
+    <p>Los perfumes sufren degradación química por hidrólisis y fotólisis al exponerse a tres factores destructivos: <strong>luz directa, cambios térmicos y humedad</strong>.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h4>Ubicación incorrecta</h4>
+        <ul>
+          <li>Repisas de baños (alta humedad ambiental).</li>
+          <li>Repisas de ventanas (radiación UV).</li>
+          <li>El interior de automóviles.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Ubicación correcta</h4>
+        <p>Conservar el frasco dentro de su caja de cartón original, guardado en un cajón o armario fresco, seco y oscuro.</p>
+      </div>
+    </div>
+
+    <h3>5.3 · Adaptación olfativa frente a evaporación real: el test de reseteo</h3>
+    <p>Existe una diferencia fundamental entre la evaporación física del perfume y la <strong>adaptación olfativa</strong> (fatiga del receptor nasal).</p>
+    <ol>
+      <li><strong>Protocolo del test del café o textil:</strong> resetea tus receptores olfativos oliendo durante 5 segundos la tela limpia de tu propia manga o unos granos de café seco.</li>
+      <li><strong>Revisión:</strong> vuelve a oler la muñeca con base. Si el aroma se percibe nítido, la fragancia continúa ahí pero tu cerebro la había filtrado.</li>
+    </ol>
+
+    <h4>Lista de comprobación de errores</h4>
+    <label class="chk"><input type="checkbox" data-k="e1"><span>Guardo el perfume en su caja, en un cajón fresco y oscuro.</span></label>
+    <label class="chk"><input type="checkbox" data-k="e2"><span>Limpio la boquilla del atomizador cuando noto chorro en vez de neblina.</span></label>
+    <label class="chk"><input type="checkbox" data-k="e3"><span>Antes de reaplicar, hago el test de reseteo con café o textil.</span></label>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     6 · RESUMEN
+     ============================================================ -->
+<section class="sec" id="resumen" data-t="RESUMEN">
+  <div class="wrap">
+    <span class="badge">Cierre y consolidación</span>
+    <h2>Resumen, glosario y listas de comprobación</h2>
+
+    <h3>Resumen por niveles</h3>
+    <div class="grid g3">
+      <div class="card">
+        <h4>Nivel 0 · Fundamentos</h4>
+        <p>La piel seca no retiene el perfume. Las moléculas aromáticas son liposolubles y necesitan una película grasa. La pirámide olfativa ordena las notas por volatilidad.</p>
+      </div>
+      <div class="card">
+        <h4>Nivel inicial · intermedio</h4>
+        <p>Prueba de la tiza, ventana de 5 minutos, base lipídica, espera de 60–90 s, pulverización a 15–20 cm y cero fricción.</p>
+      </div>
+      <div class="card">
+        <h4>Nivel avanzado · PRO</h4>
+        <p>Método <em>Wasa</em> en dos capas con pausa de 3 minutos, aplicación capilar con cepillo, anclaje textil, roll-on al 20 %, <em>Nioibukuro</em> y neutralización del <em>Kareishu</em>.</p>
+      </div>
+    </div>
+
+    <h3>Tabla de referencia rápida</h3>
+    <div class="tw">
+      <table>
+        <caption>Parámetros clave del método</caption>
+        <thead>
+          <tr><th>Parámetro</th><th>Valor</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Dosis de base (jojoba o coco fraccionado)</td><td>2 gotas</td></tr>
+          <tr><td>Dosis de base (vaselina blanca)</td><td>Media lenteja</td></tr>
+          <tr><td>Espera tras la base</td><td>60 – 90 segundos</td></tr>
+          <tr><td>Distancia de pulverización</td><td>15 – 20 cm</td></tr>
+          <tr><td>Pausa del método <em>Wasa</em></td><td>3 minutos</td></tr>
+          <tr><td>Evaporación parcial del alcohol en el cepillo</td><td>10 – 15 segundos</td></tr>
+          <tr><td>Proporción del roll-on</td><td>2 ml de perfume + 8 ml de base (10 ml)</td></tr>
+          <tr><td>Pulverizaciones para el <em>Nioibukuro</em></td><td>10</td></tr>
+          <tr><td>Prueba de parche</td><td>24 horas en la flexura del codo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Glosario técnico y terminológico</h3>
+
+    <details>
+      <summary><em>Caprylic/Capric Triglyceride</em> (triglicérido caprílico/cáprico)</summary>
+      <div class="qabody"><p>Aceite de coco fraccionado neutro, inodoro y fluido, utilizado como emoliente seguro en formulaciones cosméticas.</p></div>
+    </details>
+
+    <details>
+      <summary><em>Kareishu</em> (加齢臭)</summary>
+      <div class="qabody"><p>Término japonés para el olor corporal asociado a la madurez biológica, causado por la oxidación del ácido palmitoleico en 2-nonenal.</p></div>
+    </details>
+
+    <details>
+      <summary><em>Kōdō</em> (香道)</summary>
+      <div class="qabody"><p>«El Camino del Incienso», arte tradicional japonés centrado en la apreciación e integración de los aromas.</p></div>
+    </details>
+
+    <details>
+      <summary>Liposoluble</summary>
+      <div class="qabody"><p>Propiedad de las sustancias que se disuelven en grasas, aceites y lípidos.</p></div>
+    </details>
+
+    <details>
+      <summary><em>Monozukuri</em> (物作り)</summary>
+      <div class="qabody"><p>Filosofía industrial y artesanal japonesa basada en la optimización, la excelencia técnica y el respeto por los materiales.</p></div>
+    </details>
+
+    <details>
+      <summary><em>Nioibukuro</em> (匂い袋)</summary>
+      <div class="qabody"><p>Bolsa de tela tradicional rellena de ingredientes aromáticos y sustratos porosos.</p></div>
+    </details>
+
+    <details>
+      <summary><em>Petrolatum</em></summary>
+      <div class="qabody"><p>Vaselina blanca pura hidrogenada de grado cosmético o farmacéutico que actúa como agente oclusivo.</p></div>
+    </details>
+
+    <details>
+      <summary><em>Simmondsia Chinensis Seed Oil</em></summary>
+      <div class="qabody"><p>Nombre INCI del aceite de jojoba puro, estructuralmente compuesto por ésteres de cera líquida.</p></div>
+    </details>
+
+    <details>
+      <summary><em>Sumi-hara</em> (スメハラ)</summary>
+      <div class="qabody"><p>Abreviatura de <em>Scent Harassment</em> (acoso olfativo), concepto japonés sobre la falta de consideración al usar perfumes excesivamente invasivos en espacios públicos.</p></div>
+    </details>
+
+    <details>
+      <summary><em>Wasa</em> (重ね)</summary>
+      <div class="qabody"><p>Técnica japonesa de superposición en capas utilizada tradicionalmente en el vestuario e integrada al método de perfumado.</p></div>
+    </details>
+
+    <h3>Lista de comprobación final</h3>
+    <label class="chk"><input type="checkbox" data-k="f1"><span>He identificado si mi piel es seca con la prueba del trazo de tiza.</span></label>
+    <label class="chk"><input type="checkbox" data-k="f2"><span>Dispongo de una base lipídica homologada (jojoba, coco fraccionado o vaselina).</span></label>
+    <label class="chk"><input type="checkbox" data-k="f3"><span>Aplico la base dentro de los 5 minutos posteriores a la ducha.</span></label>
+    <label class="chk"><input type="checkbox" data-k="f4"><span>Espero 60–90 segundos y compruebo que la piel queda satinada, no aceitosa.</span></label>
+    <label class="chk"><input type="checkbox" data-k="f5"><span>Pulverizo a 15–20 cm y no froto.</span></label>
+    <label class="chk"><input type="checkbox" data-k="f6"><span>Ajusto el número de pulverizaciones a la concentración del perfume.</span></label>
+    <label class="chk"><input type="checkbox" data-k="f7"><span>Practico el <em>Sumi-hara</em>: dosis moderada y percepción en distancias cortas.</span></label>
+    <label class="chk"><input type="checkbox" data-k="f8"><span>Almaceno el perfume en un lugar fresco, seco y oscuro.</span></label>
+
+    <div class="note gold">
+      <p><strong>Recordatorio final:</strong> el objetivo no es oler más, sino oler mejor durante más tiempo. Una base lipídica, una dosis ajustada y cero fricción resuelven la mayor parte del problema.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     7 · FUENTES
+     ============================================================ -->
+<section class="sec" id="fuentes" data-t="FUENTES">
+  <div class="wrap">
+    <span class="badge">Documentación y trazabilidad</span>
+    <h2>Fuentes fiables y documentación oficial</h2>
+
+    <h3>1 · Documentación del canal oficial / fuente principal</h3>
+    <div class="card">
+      <p><strong>Transcripción oficial del vídeo:</strong> «El Líquido Barato que hace que CUALQUIER Perfume dure 24 Horas en tu Piel — El Método Japonés», canal <strong>Efecto Tokio</strong>, por Rubén Sbarsky.</p>
+    </div>
+
+    <h3>2 · Estándares regulatorios y farmacopeas oficiales de Japón</h3>
+    <div class="card">
+      <p><strong>Nihon Yakukouhou (日本薬局方 – Japanese Pharmacopoeia – JP):</strong> monografías oficiales de pureza, punto de fusión y límites de impurezas para vaselina blanca (<em>Petrolatum</em>) y glicerina concentrada.</p>
+      <p><strong>GSSI (Japanese Standards of Cosmetic Ingredients):</strong> normativa oficial reguladora para el uso seguro de emolientes, triglicéridos y cera de jojoba en cosmética humana.</p>
+    </div>
+
+    <h3>3 · Investigación científica e histórica citada</h3>
+    <div class="card">
+      <p><strong>Shiseido Research Center (año 2000):</strong> identificación del compuesto <em>2-nonenal</em> como responsable del olor de madurez cutánea (<em>Kareishu</em>) y mecanismo de neutralización mediante taninos de caqui (<em>Kakitanin</em>).</p>
+      <p><strong>Literatura clásica de la era Heian:</strong> <em>Genji Monogatari</em> (capítulo dedicado al concurso de incienso) y tratados de <em>Kōdō</em> (香道).</p>
+    </div>
+
+    <div class="note">
+      <p><strong>Nota de transparencia:</strong> este tutorial reorganiza y explica el contenido del material de partida. No añade datos, procedimientos ni resultados que no figuren en él. Las referencias numéricas [1]–[21] del documento original remiten a las fuentes listadas en este apartado.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     8 · CRÉDITOS
+     ============================================================ -->
+<section class="sec" id="creditos" data-t="CRÉDITOS">
+  <div class="wrap">
+    <span class="badge gold">Créditos</span>
+    <h2>Créditos</h2>
+
+    <div class="heromount" data-hero="1" role="img" aria-label="Ilustración animada del Método Japonés para Perfumes: una gota dorada de base lipídica sobre la piel, con la pirámide olfativa en su interior, pétalos de sakura y volutas de incienso."></div>
+
+    <div class="card">
+      <p><strong>Descripción de la ilustración:</strong> una gota dorada de base lipídica se posa sobre una capa de piel iluminada. En su interior laten los tres niveles de la pirámide olfativa; a su alrededor orbitan moléculas aromáticas, caen pétalos de sakura y ascienden volutas de incienso. En la banda inferior, los puntos de pulso emiten ondas de microclima térmico.</p>
+    </div>
+
+    <p class="author">Rubén Sbarsky</p>
+    <p class="authrole">Autor del tutorial</p>
+
+    <div class="card">
+      <dl class="meta">
+        <div><dt>Metodología</dt><dd>Efecto Tokio</dd></div>
+        <div><dt>Área</dt><dd>Documentación técnica, química cosmética aplicada y diseño instruccional</dd></div>
+        <div><dt>Nivel</dt><dd>Desde principiante absoluto (Nivel 0) hasta profesional</dd></div>
+        <div><dt>Versión</dt><dd>V001</dd></div>
+        <div><dt>Archivo</dt><dd>tutorial_metodo_japones_perfumes_V001.html</dd></div>
+        <div><dt>Fecha y hora de creación</dt><dd>25/10/2026 — 04:46:13</dd></div>
+        <div><dt>Formato</dt><dd>Archivo HTML único, autónomo, sin dependencias externas</dd></div>
+      </dl>
+    </div>
+
+    <div class="note">
+      <p><strong>Aviso:</strong> este material tiene finalidad educativa. No sustituye el consejo de un dermatólogo o de un profesional de la cosmética. Realiza siempre una prueba de parche antes de usar un producto nuevo sobre la piel.</p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<button id="top" aria-label="Volver arriba" title="Volver arriba">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ============================================================
+     PLANTILLA SVG ÚNICA (fuente oculta)
+     ============================================================ -->
+<div id="svgsrc" hidden aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" class="hero-svg" role="img" aria-labelledby="hsT__U__ hsD__U__" preserveAspectRatio="xMidYMid meet">
+  <title id="hsT__U__">Método Japonés para Perfumes: gota de base lipídica sobre la piel con la pirámide olfativa</title>
+  <desc id="hsD__U__">Ilustración animada: una gota dorada de base lipídica se posa sobre una capa de piel iluminada y libera de forma progresiva las notas de salida, corazón y fondo, mientras orbitan moléculas aromáticas, caen pétalos de sakura y ascienden volutas de incienso.</desc>
+
+  <defs>
+    <radialGradient id="hsBg__U__" cx="50%" cy="42%" r="72%">
+      <stop offset="0%" stop-color="#14304d"/>
+      <stop offset="58%" stop-color="#0b1526"/>
+      <stop offset="100%" stop-color="#0a0e1a"/>
+    </radialGradient>
+    <linearGradient id="hsDrop__U__" x1="0" y1="0" x2="0.45" y2="1">
+      <stop offset="0%" stop-color="#ffe9b8"/>
+      <stop offset="42%" stop-color="#f7c86a"/>
+      <stop offset="100%" stop-color="#d1842f"/>
+    </linearGradient>
+    <linearGradient id="hsRim__U__" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8fe9ff" stop-opacity=".95"/>
+      <stop offset="60%" stop-color="#38bdf8" stop-opacity=".25"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="hsSkin__U__" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1b3a5c"/>
+      <stop offset="100%" stop-color="#08101c"/>
+    </linearGradient>
+    <linearGradient id="hsFilm__U__" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#9beeff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="hsGlow__U__" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="hsSoft__U__" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <clipPath id="hsClip__U__">
+      <path d="M200,104 C232,166 262,203 262,242 A62,62 0 1,1 138,242 C138,203 168,166 200,104 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="400" height="500" fill="url(#hsBg__U__)"/>
+
+  <!-- Estrellas / partículas de fondo -->
+  <g fill="#9beeff">
+    <circle cx="34" cy="58" r="1.5" class="hs-tw" style="animation-delay:-.3s"/>
+    <circle cx="86" cy="36" r="1.1" class="hs-tw" style="animation-delay:-1.7s"/>
+    <circle cx="150" cy="62" r="1.3" class="hs-tw" style="animation-delay:-2.6s"/>
+    <circle cx="222" cy="30" r="1.6" class="hs-tw" style="animation-delay:-.9s"/>
+    <circle cx="286" cy="58" r="1.2" class="hs-tw" style="animation-delay:-3.2s"/>
+    <circle cx="348" cy="40" r="1.5" class="hs-tw" style="animation-delay:-2.1s"/>
+    <circle cx="372" cy="120" r="1.1" class="hs-tw" style="animation-delay:-1.2s"/>
+    <circle cx="26" cy="150" r="1.3" class="hs-tw" style="animation-delay:-3.8s"/>
+    <circle cx="60" cy="252" r="1" class="hs-tw" style="animation-delay:-2.9s"/>
+    <circle cx="342" cy="272" r="1.2" class="hs-tw" style="animation-delay:-.6s"/>
+    <circle cx="20" cy="332" r="1.4" class="hs-tw" style="animation-delay:-3.5s"/>
+    <circle cx="384" cy="352" r="1.1" class="hs-tw" style="animation-delay:-1.9s"/>
+    <circle cx="120" cy="20" r="1.2" class="hs-tw" style="animation-delay:-2.4s"/>
+    <circle cx="302" cy="98" r="1" class="hs-tw" style="animation-delay:-4.1s"/>
+  </g>
+
+  <!-- Círculo enso -->
+  <circle cx="200" cy="230" r="140" fill="none" stroke="#2e6f9e" stroke-width="2"
+          stroke-linecap="round" stroke-dasharray="620 260" opacity=".45" class="hs-enso"/>
+
+  <!-- Ondas expansivas -->
+  <g fill="none" stroke="#38bdf8" stroke-width="1.3">
+    <circle cx="200" cy="230" r="96" class="hs-rip" style="animation-delay:0s"/>
+    <circle cx="200" cy="230" r="96" class="hs-rip" style="animation-delay:1.7s"/>
+    <circle cx="200" cy="230" r="96" class="hs-rip" style="animation-delay:3.4s"/>
+  </g>
+
+  <!-- Órbitas de moléculas -->
+  <g class="hs-orbit">
+    <ellipse cx="200" cy="230" rx="152" ry="58" fill="none" stroke="#38bdf8" stroke-width=".8" opacity=".16"/>
+    <circle cx="352" cy="230" r="4" fill="#9beeff" filter="url(#hsGlow__U__)"/>
+    <circle cx="48" cy="230" r="3" fill="#f7c86a"/>
+    <circle cx="276" cy="180" r="2.6" fill="#38bdf8"/>
+  </g>
+  <g class="hs-orbit2">
+    <ellipse cx="200" cy="230" rx="120" ry="86" fill="none" stroke="#9beeff" stroke-width=".7" opacity=".12"/>
+    <circle cx="200" cy="144" r="3.4" fill="#ffd479"/>
+    <circle cx="320" cy="230" r="2.4" fill="#9beeff"/>
+  </g>
+
+  <!-- Halo del centro -->
+  <circle cx="200" cy="230" r="95" fill="#38bdf8" opacity=".14" filter="url(#hsSoft__U__)" class="hs-breathe"/>
+
+  <!-- Gota de base lipídica + pirámide olfativa -->
+  <g class="hs-float">
+    <path d="M200,104 C232,166 262,203 262,242 A62,62 0 1,1 138,242 C138,203 168,166 200,104 Z"
+          fill="url(#hsDrop__U__)" opacity=".96"/>
+    <path d="M200,104 C232,166 262,203 262,242 A62,62 0 1,1 138,242 C138,203 168,166 200,104 Z"
+          fill="none" stroke="url(#hsRim__U__)" stroke-width="2.5"/>
+    <ellipse cx="176" cy="236" rx="13" ry="26" fill="#ffffff" opacity=".22"
+             transform="rotate(-18 176 236)"/>
+
+    <g clip-path="url(#hsClip__U__)">
+      <path d="M200,200 L188,220 M200,200 L212,220 M188,220 L176,244 M188,220 L200,244 M212,220 L200,244 M212,220 L224,244"
+            stroke="#0a2a3d" stroke-width="1" opacity=".35" fill="none"/>
+      <circle cx="200" cy="200" r="4.6" fill="#0b3550" class="hs-n" style="animation-delay:-.2s"/>
+      <circle cx="188" cy="220" r="4.6" fill="#0b3550" class="hs-n" style="animation-delay:-1.1s"/>
+      <circle cx="212" cy="220" r="4.6" fill="#0b3550" class="hs-n" style="animation-delay:-1.7s"/>
+      <circle cx="176" cy="244" r="4.6" fill="#0b3550" class="hs-n" style="animation-delay:-2.3s"/>
+      <circle cx="200" cy="244" r="4.6" fill="#0b3550" class="hs-n" style="animation-delay:-.7s"/>
+      <circle cx="224" cy="244" r="4.6" fill="#0b3550" class="hs-n" style="animation-delay:-2.9s"/>
+    </g>
+  </g>
+
+  <!-- Moléculas que ascienden -->
+  <g>
+    <circle class="hs-p" cx="170" cy="196" r="2.2" fill="#9beeff" style="animation-delay:-.2s"/>
+    <circle class="hs-p" cx="192" cy="188" r="1.8" fill="#ffd479" style="animation-delay:-2.4s"/>
+    <circle class="hs-p" cx="212" cy="200" r="2.6" fill="#9beeff" style="animation-delay:-4.1s"/>
+    <circle class="hs-p" cx="232" cy="190" r="1.6" fill="#38bdf8" style="animation-delay:-1.3s"/>
+    <circle class="hs-p" cx="200" cy="176" r="2" fill="#ffe9b8" style="animation-delay:-3.3s"/>
+    <circle class="hs-p" cx="182" cy="206" r="1.5" fill="#9beeff" style="animation-delay:-5.2s"/>
+    <circle class="hs-p" cx="222" cy="210" r="1.9" fill="#ffd479" style="animation-delay:-3.9s"/>
+  </g>
+
+  <!-- Volutas de incienso (kōdō) -->
+  <path class="hs-smoke" d="M58,404 C38,344 78,322 58,262 C38,202 78,182 58,122"
+        fill="none" stroke="#9beeff" stroke-width="1.6" opacity=".26" stroke-linecap="round"/>
+  <path class="hs-smoke" d="M344,404 C364,344 324,322 344,262 C364,202 324,182 344,122"
+        fill="none" stroke="#9beeff" stroke-width="1.6" opacity=".2" stroke-linecap="round"
+        style="animation-delay:-3.5s"/>
+
+  <!-- Pétalos de sakura -->
+  <g transform="translate(46,0)"><path class="hs-petal" d="M0,0 C4,-7 13,-6 12,1 C11,8 2,9 0,0 Z" style="animation-delay:-1s"/></g>
+  <g transform="translate(118,0)"><path class="hs-petal" d="M0,0 C4,-7 13,-6 12,1 C11,8 2,9 0,0 Z" style="animation-delay:-5s"/></g>
+  <g transform="translate(196,0)"><path class="hs-petal" d="M0,0 C4,-7 13,-6 12,1 C11,8 2,9 0,0 Z" style="animation-delay:-9.5s"/></g>
+  <g transform="translate(268,0)"><path class="hs-petal" d="M0,0 C4,-7 13,-6 12,1 C11,8 2,9 0,0 Z" style="animation-delay:-12.5s"/></g>
+  <g transform="translate(330,0)"><path class="hs-petal" d="M0,0 C4,-7 13,-6 12,1 C11,8 2,9 0,0 Z" style="animation-delay:-3s"/></g>
+  <g transform="translate(368,0)"><path class="hs-petal" d="M0,0 C4,-7 13,-6 12,1 C11,8 2,9 0,0 Z" style="animation-delay:-7.5s"/></g>
+
+  <!-- Banda de piel -->
+  <path d="M0,404 C90,392 150,412 200,408 C260,403 330,392 400,404 L400,500 L0,500 Z"
+        fill="url(#hsSkin__U__)"/>
+  <ellipse cx="200" cy="412" rx="78" ry="15" fill="#38bdf8" opacity=".16"
+           filter="url(#hsSoft__U__)" class="hs-breathe2"/>
+
+  <!-- Película lipídica -->
+  <path d="M0,404 C90,392 150,412 200,408 C260,403 330,392 400,404"
+        fill="none" stroke="url(#hsFilm__U__)" stroke-width="3" stroke-linecap="round" class="hs-film"/>
+
+  <!-- Puntos de pulso -->
+  <g fill="none" stroke="#9beeff" stroke-width="1.2">
+    <circle cx="110" cy="399" r="7" class="hs-pulse" style="animation-delay:-.4s"/>
+    <circle cx="200" cy="408" r="7" class="hs-pulse" style="animation-delay:-1.3s"/>
+    <circle cx="292" cy="400" r="7" class="hs-pulse" style="animation-delay:-2.1s"/>
+  </g>
+  <g fill="#9beeff">
+    <circle cx="110" cy="399" r="2.4"/>
+    <circle cx="200" cy="408" r="2.4"/>
+    <circle cx="292" cy="400" r="2.4"/>
+  </g>
+
+  <!-- Destellos sobre la película -->
+  <g fill="#ffd479" opacity=".8">
+    <circle cx="146" cy="406" r="1.6" class="hs-tw" style="animation-delay:-1.1s"/>
+    <circle cx="246" cy="404" r="1.6" class="hs-tw" style="animation-delay:-2.8s"/>
+    <circle cx="330" cy="397" r="1.4" class="hs-tw" style="animation-delay:-.5s"/>
+    <circle cx="72" cy="401" r="1.4" class="hs-tw" style="animation-delay:-3.6s"/>
+  </g>
+</svg>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ==========================================================
+     0 · UTILIDADES
+     ========================================================== */
+  var $  = function(s,c){ return (c||document).querySelector(s); };
+  var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+  var store = {
+    get:function(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } },
+    set:function(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  };
+
+  var toastEl = $('#toast');
+  var toastT = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('on');
+    clearTimeout(toastT);
+    toastT = setTimeout(function(){ toastEl.classList.remove('on'); }, 2600);
+  }
+
+  /* ==========================================================
+     1 · AJUSTE DE LA BARRA (altura real → posición del panel)
+     ========================================================== */
+  var nav = $('#nav');
+  function fitNav(){
+    if(!nav) return;
+    var h = nav.getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--navh', Math.round(h) + 'px');
+  }
+  fitNav();
+  window.addEventListener('resize', fitNav);
+  window.addEventListener('orientationchange', function(){ setTimeout(fitNav, 150); });
+
+  /* ==========================================================
+     2 · SECCIONES, PESTAÑAS E ÍNDICE
+     ========================================================== */
+  var SEC  = $$('main .sec');
+  var TAB  = $$('#chips .chip');
+  var dr      = $('#dr');
+  var drlist  = $('#drlist');
+  var drq     = $('#drq');
+  var drempty = $('#drempty');
+  var mb      = $('#mb');
+  var cur     = 0;
+
+  /* --- construir entradas del índice desde las secciones reales --- */
+  SEC.forEach(function(s, i){
+    var a = document.createElement('a');
+    a.href = '#' + s.id;
+    var titulo = s.dataset.t ||
+                 (s.querySelector('h2') ? s.querySelector('h2').textContent.trim() : s.id);
+    a.textContent = (i ? (i + '. ') : '') + titulo;
+    a.setAttribute('data-idx', String(i));
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      go(i);
+      tg(false);
+    });
+    drlist.appendChild(a);
+  });
+
+  var DRITEMS = $$('a', drlist);
+
+  /* --- abrir / cerrar el panel --- */
+  function tg(v){
+    if(!dr || !mb) return;
+    var open = (typeof v === 'boolean') ? v : !dr.classList.contains('o');
+    dr.classList.toggle('o', open);
+    mb.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mb.setAttribute('aria-label', open ? 'Cerrar índice' : 'Abrir índice');
+    if(open && drq){
+      drq.value = '';
+      filterDrawer('');
+    }
+  }
+
+  mb.addEventListener('click', function(ev){
+    ev.stopPropagation();
+    tg();
+  });
+
+  document.addEventListener('keydown', function(ev){
+    if(ev.key === 'Escape' || ev.key === 'Esc'){
+      if(dr.classList.contains('o')){
+        tg(false);
+        mb.focus();
+      }
+    }
+  });
+
+  document.addEventListener('click', function(ev){
+    if(!ev.target.closest('#dr, #mb, #ix')) tg(false);
+  });
+
+  var ixBtn = $('#ix');
+  if(ixBtn){
+    ixBtn.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      tg(true);
+    });
+  }
+
+  /* --- filtro del índice --- */
+  function filterDrawer(q){
+    var term = (q || '').trim().toLowerCase();
+    var vis = 0;
+    DRITEMS.forEach(function(a){
+      var hit = !term || a.textContent.toLowerCase().indexOf(term) !== -1;
+      a.style.display = hit ? '' : 'none';
+      if(hit) vis++;
+    });
+    if(drempty) drempty.style.display = (vis === 0) ? 'block' : 'none';
+  }
+  if(drq){
+    drq.addEventListener('input', function(){ filterDrawer(drq.value); });
+    drq.addEventListener('keydown', function(ev){
+      if(ev.key === 'Enter'){
+        ev.preventDefault();
+        var first = DRITEMS.filter(function(a){ return a.style.display !== 'none'; })[0];
+        if(first) first.click();
+      }
+    });
+  }
+
+  /* ==========================================================
+     3 · MONTaje DEL SVG (plantilla única + IDs únicos)
+     ========================================================== */
+  var TPL = '';
+  var srcEl = document.getElementById('svgsrc');
+  if(srcEl){
+    TPL = srcEl.innerHTML;
+    srcEl.parentNode.removeChild(srcEl);
+  }
+
+  var FALLBACK_SVG =
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">' +
+    '<rect width="400" height="500" fill="#0a0e1a"/>' +
+    '<circle cx="200" cy="230" r="140" fill="none" stroke="#2e6f9e" stroke-width="2" opacity="0.45"/>' +
+    '<path d="M200 104c32 62 62 99 62 138a62 62 0 1 1-124 0c0-39 30-76 62-138z" fill="#f7c86a" opacity="0.95"/>' +
+    '<circle cx="200" cy="200" r="4.5" fill="#0b3550"/>' +
+    '<circle cx="188" cy="220" r="4.5" fill="#0b3550"/>' +
+    '<circle cx="212" cy="220" r="4.5" fill="#0b3550"/>' +
+    '<circle cx="176" cy="244" r="4.5" fill="#0b3550"/>' +
+    '<circle cx="200" cy="244" r="4.5" fill="#0b3550"/>' +
+    '<circle cx="224" cy="244" r="4.5" fill="#0b3550"/>' +
+    '<path d="M0 404c90-12 150 8 200 4 60-5 130-16 200-4v96H0z" fill="#1b3a5c"/>' +
+    '<path d="M0 404c90-12 150 8 200 4 60-5 130-16 200-4" fill="none" stroke="#9beeff" stroke-width="3" opacity="0.8"/>' +
+    '</svg>';
+
+  var uid = 0;
+  function mountSVG(container){
+    if(!container) return;
+    try{
+      if(!TPL || TPL.indexOf('<svg') === -1) throw new Error('plantilla no disponible');
+      uid++;
+      container.innerHTML = TPL.replace(/__U__/g, 'u' + uid);
+      if(!container.querySelector('svg')) throw new Error('montaje vacío');
+    }catch(err){
+      container.innerHTML = '';
+      var img = document.createElement('img');
+      img.alt = 'Ilustración del Método Japonés para Perfumes';
+      img.width = 400;
+      img.height = 500;
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(FALLBACK_SVG);
+      container.appendChild(img);
+    }
+  }
+
+  function mountIn(root){
+    if(!root) return;
+    $$('.heromount', root).forEach(function(c){
+      if(!c.querySelector('svg') && !c.querySelector('img')) mountSVG(c);
+    });
+  }
+
+  /* Reparación periódica de contenedores visibles vacíos */
+  setInterval(function(){
+    $$('.heromount').forEach(function(c){
+      var sec = c.closest ? c.closest('.sec') : null;
+      if(sec && !sec.classList.contains('on')) return;
+      if(c.offsetParent === null) return;
+      if(!c.querySelector('svg') && !c.querySelector('img')) mountSVG(c);
+    });
+  }, 2500);
+
+  /* ==========================================================
+     4 · NAVEGACIÓN SPA
+     ========================================================== */
+  function go(i){
+    i = parseInt(i, 10);
+    if(isNaN(i)) i = 0;
+    i = Math.max(0, Math.min(SEC.length - 1, i));
+    cur = i;
+
+    SEC.forEach(function(s, j){ s.classList.toggle('on', j === i); });
+
+    TAB.forEach(function(b, j){
+      var on = (j === i);
+      b.classList.toggle('on', on);
+      if(on){ b.setAttribute('aria-current', 'page'); }
+      else { b.removeAttribute('aria-current'); }
+    });
+
+    DRITEMS.forEach(function(a, j){ a.classList.toggle('on', j === i); });
+
+    mountIn(SEC[i]);
+
+    try{
+      history.replaceState(null, '', '#' + SEC[i].id);
+    }catch(e){ /* file:// con restricciones: se ignora */ }
+
+    window.scrollTo(0, 0);
+    updateProgress();
+  }
+
+  TAB.forEach(function(b){
+    b.addEventListener('click', function(){
+      go(parseInt(b.getAttribute('data-i'), 10));
+    });
+  });
+
+  $$('[data-go]').forEach(function(b){
+    b.addEventListener('click', function(){
+      go(parseInt(b.getAttribute('data-go'), 10));
+    });
+  });
+
+  /* Estado inicial: hash > INICIO */
+  (function initTab(){
+    var h = (location.hash || '').replace('#', '');
+    var start = 0;
+    SEC.forEach(function(s, i){ if(s.id === h) start = i; });
+    go(start);
+  })();
+
+  window.addEventListener('hashchange', function(){
+    var h = (location.hash || '').replace('#', '');
+    SEC.forEach(function(s, i){ if(s.id === h && i !== cur) go(i); });
+  });
+
+  /* ==========================================================
+     5 · PROGRESO DE LECTURA + VOLVER ARRIBA
+     ========================================================== */
+  var pfill = $('#pfill');
+  var topBtn = $('#top');
+
+  function updateProgress(){
+    var doc = document.documentElement;
+    var max = (doc.scrollHeight - window.innerHeight);
+    var p = max > 0 ? (window.scrollY / max) * 100 : 0;
+    p = Math.max(0, Math.min(100, p));
+    if(pfill) pfill.style.width = p + '%';
+    if(topBtn){
+      if(window.scrollY > 320) topBtn.classList.add('on');
+      else topBtn.classList.remove('on');
+    }
+  }
+
+  var rafPending = false;
+  window.addEventListener('scroll', function(){
+    if(rafPending) return;
+    rafPending = true;
+    window.requestAnimationFrame(function(){
+      updateProgress();
+      rafPending = false;
+    });
+  }, { passive:true });
+  window.addEventListener('resize', updateProgress);
+
+  if(topBtn){
+    topBtn.addEventListener('click', function(){
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
+  }
+
+  /* ==========================================================
+     6 · TAMAÑO DE LETRA Y TEMA
+     ========================================================== */
+  var fs = parseInt(store.get('mjp.fs') || '16', 10);
+  if(isNaN(fs)) fs = 16;
+  function setFs(v){
+    fs = Math.max(13, Math.min(21, v));
+    document.documentElement.style.setProperty('--fs', fs + 'px');
+    store.set('mjp.fs', String(fs));
+  }
+  setFs(fs);
+
+  var fsm = $('#fsm'), fsp = $('#fsp');
+  if(fsm) fsm.addEventListener('click', function(){ setFs(fs - 1); });
+  if(fsp) fsp.addEventListener('click', function(){ setFs(fs + 1); });
+
+  var thm = $('#thm');
+  var tema = store.get('mjp.theme') || 'dark';
+  function setTheme(t){
+    tema = (t === 'light') ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', tema);
+    store.set('mjp.theme', tema);
+    if(thm){
+      thm.setAttribute('aria-label', tema === 'dark' ? 'Activar tema claro' : 'Activar tema oscuro');
+      thm.textContent = (tema === 'dark') ? '◐' : '☀';
+    }
+  }
+  setTheme(tema);
+  if(thm) thm.addEventListener('click', function(){ setTheme(tema === 'dark' ? 'light' : 'dark'); });
+
+  /* ==========================================================
+     7 · LISTAS DE COMPROBACIÓN PERSISTENTES
+     ========================================================== */
+  $$('input[type="checkbox"][data-k]').forEach(function(cb){
+    var k = 'mjp.chk.' + cb.getAttribute('data-k');
+    if(store.get(k) === '1') cb.checked = true;
+    cb.addEventListener('change', function(){
+      store.set(k, cb.checked ? '1' : '0');
+    });
+  });
+
+  /* ==========================================================
+     8 · COPIAR AL PORTAPAPELES
+     ========================================================== */
+  function fallbackCopy(txt){
+    try{
+      var ta = document.createElement('textarea');
+      ta.value = txt;
+      ta.setAttribute('readonly','');
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      ta.style.left = '-1000px';
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, txt.length);
+      var ok = false;
+      try{ ok = document.execCommand('copy'); }catch(e){ ok = false; }
+      document.body.removeChild(ta);
+      return ok;
+    }catch(e){ return false; }
+  }
+
+  function copyText(txt, btn){
+    function done(ok){
+      if(!btn) return;
+      btn.classList.remove('ok','err');
+      if(ok){
+        btn.classList.add('ok');
+        btn.textContent = '¡COPIADO!';
+        toast('Texto copiado al portapapeles.');
+      }else{
+        btn.classList.add('err');
+        btn.textContent = 'FALLO';
+        toast('No se pudo copiar. Selecciona el texto manualmente y usa Ctrl+C o Cmd+C.');
+      }
+      setTimeout(function(){
+        btn.classList.remove('ok','err');
+        btn.textContent = 'COPIAR';
+      }, 2200);
+    }
+
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ done(true); })
+        .catch(function(){ done(fallbackCopy(txt)); });
+    }else{
+      done(fallbackCopy(txt));
+    }
+  }
+
+  $$('.copybtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.getAttribute('data-target');
+      var el = id ? document.getElementById(id) : null;
+      var txt = el ? (el.innerText || el.textContent || '') : '';
+      if(!txt){ toast('No hay contenido copiable en este bloque.'); return; }
+      copyText(txt, btn);
+    });
+  });
+
+  /* ==========================================================
+     9 · IMPRESIÓN / PDF
+     ========================================================== */
+  var printState = null;
+
+  function beforePrint(){
+    $$('.heromount').forEach(function(c){
+      if(!c.querySelector('svg') && !c.querySelector('img')) mountSVG(c);
+    });
+    var abiertos = [];
+    $$('details').forEach(function(d){
+      if(!d.open){ abiertos.push(d); d.open = true; }
+    });
+    printState = abiertos;
+  }
+
+  function afterPrint(){
+    if(!printState) return;
+    printState.forEach(function(d){ d.open = false; });
+    printState = null;
+  }
+
+  var prt = $('#prt');
+  if(prt){
+    prt.addEventListener('click', function(){
+      try{
+        beforePrint();
+        window.print();
+        setTimeout(afterPrint, 800);
+      }catch(e){
+        afterPrint();
+        toast('Abre este archivo directamente en el navegador y utiliza Ctrl+P o Cmd+P.');
+      }
+    });
+  }
+
+  window.addEventListener('beforeprint', beforePrint);
+  window.addEventListener('afterprint', afterPrint);
+
+  /* ==========================================================
+     10 · ESTADO FINAL
+     ========================================================== */
+  fitNav();
+  updateProgress();
+  mountIn(SEC[cur]);
+
+})();
+</script>
+</body>
+</html>
